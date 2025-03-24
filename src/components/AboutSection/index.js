@@ -14,20 +14,26 @@ const CheckItem = styled(Box)(({ theme }) => ({
   },
 }));
 
-const StyledImage = styled(Box)(({ theme }) => ({
-  position: 'relative',
-  '& .customer-count': {
-    position: 'absolute',
-    bottom: -20,
-    right: -20,
-    backgroundColor: theme.palette.primary.main,
-    color: 'white',
-    padding: theme.spacing(3),
-    borderRadius: theme.spacing(2),
-    textAlign: 'center',
-    boxShadow: theme.shadows[3],
-    [theme.breakpoints.down('sm')]: {
-      right: 20,
+const FloatingStats = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  bottom: -20,
+  right: -40,
+  backgroundColor: theme.palette.primary.main,
+  color: 'white',
+  padding: theme.spacing(3),
+  borderRadius: theme.spacing(2),
+  textAlign: 'center',
+  boxShadow: theme.shadows[3],
+  animation: 'float 3s ease-in-out infinite',
+  '@keyframes float': {
+    '0%': {
+      transform: 'translateX(0px)',
+    },
+    '50%': {
+      transform: 'translateX(10px)',
+    },
+    '100%': {
+      transform: 'translateX(0px)',
     },
   },
 }));
@@ -40,15 +46,15 @@ const services = [
 
 const AboutSection = () => {
   return (
-    <Box component="section" sx={{ py: 8, bgcolor: 'background.paper' }}>
+    <Box component="section" id="about" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container>
         <Grid container spacing={6} alignItems="center">
           <Grid item xs={12} md={6}>
-            <StyledImage>
+            <Box sx={{ position: 'relative' }}>
               <Box
                 component="img"
-                src="/assets/about-cleaning.jpg"
-                alt="Professional Cleaner"
+                src="/assets/about-image.jpg"
+                alt="About Our Cleaning Service"
                 sx={{
                   width: '100%',
                   height: 'auto',
@@ -56,25 +62,23 @@ const AboutSection = () => {
                   boxShadow: 3,
                 }}
               />
-              <Box className="customer-count">
-                <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
-                  1.3K
+              <FloatingStats>
+                <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+                  1.3K+
                 </Typography>
-                <Typography>
-                  Happy<br />Customers
-                </Typography>
-              </Box>
-            </StyledImage>
+                <Typography>Happy Customers</Typography>
+              </FloatingStats>
+            </Box>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Box>
+            <Box sx={{ pl: { md: 4 } }}>
               <Typography
                 variant="h6"
                 component="span"
                 color="primary"
                 sx={{ display: 'block', mb: 2 }}
               >
-                About Goclean
+                About Us
               </Typography>
               <Typography
                 variant="h2"
@@ -84,14 +88,14 @@ const AboutSection = () => {
                   fontSize: { xs: '2rem', md: '2.5rem' },
                 }}
               >
-                We Are Best Company<br />In Cleaning
+                Professional Cleaning Service You Can Trust
               </Typography>
               <Typography
                 variant="body1"
                 color="text.secondary"
                 sx={{ mb: 4 }}
               >
-                Efficient, Friendly, Residential & Commercial Cleaners Near Australia, your satisfaction is guaranteed!
+                We are dedicated to providing top-quality cleaning services with attention to detail and customer satisfaction. Our experienced team uses professional-grade equipment and eco-friendly products to ensure the best results.
               </Typography>
               <Typography
                 variant="body1"

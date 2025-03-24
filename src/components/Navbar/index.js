@@ -15,6 +15,7 @@ import {
   useScrollTrigger,
   useTheme,
   useMediaQuery,
+  Typography,
 } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faPhone, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons';
@@ -54,7 +55,6 @@ const NavLinks = styled(Box)(({ theme }) => ({
 const QuickContact = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  gap: theme.spacing(2),
   [theme.breakpoints.down('lg')]: {
     display: 'none',
   },
@@ -147,25 +147,12 @@ const Navbar = () => {
             )}
 
             <QuickContact>
-              <FontAwesomeIcon icon={faPhone} size="lg" />
-              <Box>
-                <Box sx={{ fontSize: '0.75rem', color: 'text.secondary' }}>
-                  QUICK CONNECT
-                </Box>
-                <Box sx={{ fontWeight: 600 }}>
-                  +61 234 567 8899
-                </Box>
-              </Box>
               <Button
                 variant="contained"
                 color="secondary"
                 href="#estimate"
                 sx={{ 
-                  py: 1,
-                  px: 3,
-                  height: 'auto',
-                  alignSelf: 'center',
-                  borderRadius: 1
+                  height: 'fit-content'
                 }}
               >
                 Request An Estimate

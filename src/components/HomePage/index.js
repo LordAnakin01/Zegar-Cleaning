@@ -16,14 +16,13 @@ const HomePage = () => {
     <>
       <Hero />
       <Services />
-      <WhyChooseUs />
       <AboutSection />
       <Stats />
+      <WhyChooseUs />
       <Gallery />
-      <Team />
       <Testimonials />
-      <RecentArticles />
       <CallToAction />
+      <Team />
       <Contact />
     </>
   );

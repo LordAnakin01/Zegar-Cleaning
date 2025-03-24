@@ -13,21 +13,21 @@ import Team from './components/Team';
 import Testimonials from './components/Testimonials';
 import CallToAction from './components/CallToAction';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 import Stats from './components/Stats';
 import AboutSection from './components/AboutSection';
+import Footer from './components/Footer';
 
 const HomePage = () => (
   <>
     <Hero />
     <Services />
-    <WhyChooseUs />
     <AboutSection />
     <Stats />
+    <WhyChooseUs />
     <Gallery />
-    <Team />
     <Testimonials />
     <CallToAction />
+    <Team />
     <Contact />
   </>
 );
