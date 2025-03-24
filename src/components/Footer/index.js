@@ -1,8 +1,100 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, TextField, Button, Link } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { styled, keyframes } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
+const rise = keyframes`
+  0% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+`;
+
+const FooterWrapper = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  backgroundColor: theme.palette.primary.main,
+  color: 'white',
+  overflow: 'hidden',
+  '&::before, &::after': {
+    content: '""',
+    position: 'absolute',
+    width: '120px',
+    height: '120px',
+    borderRadius: '50%',
+    background: 'rgba(255, 255, 255, 0.08)',
+    animation: `${rise} 10s infinite`,
+    bottom: 0,
+    animationTimingFunction: 'ease-in',
+  },
+  '&::before': {
+    left: '15%',
+    animationDelay: '0s',
+  },
+  '&::after': {
+    left: '45%',
+    width: '160px',
+    height: '160px',
+    animationDelay: '5s',
+  },
+  '& .bubble': {
+    position: 'absolute',
+    borderRadius: '50%',
+    background: 'rgba(255, 255, 255, 0.06)',
+    animation: `${rise} 12s infinite`,
+    bottom: 0,
+    animationTimingFunction: 'ease-in',
+    '&:nth-of-type(1)': {
+      width: '180px',
+      height: '180px',
+      left: '25%',
+      animationDelay: '2s',
+    },
+    '&:nth-of-type(2)': {
+      width: '100px',
+      height: '100px',
+      left: '65%',
+      animationDelay: '7s',
+    },
+    '&:nth-of-type(3)': {
+      width: '140px',
+      height: '140px',
+      left: '85%',
+      animationDelay: '4s',
+    },
+    '&:nth-of-type(4)': {
+      width: '160px',
+      height: '160px',
+      left: '35%',
+      animationDelay: '6s',
+    },
+    '&:nth-of-type(5)': {
+      width: '120px',
+      height: '120px',
+      left: '55%',
+      animationDelay: '3s',
+    },
+    '&:nth-of-type(6)': {
+      width: '90px',
+      height: '90px',
+      left: '75%',
+      animationDelay: '8s',
+    },
+    '&:nth-of-type(7)': {
+      width: '130px',
+      height: '130px',
+      left: '15%',
+      animationDelay: '1s',
+    },
+  },
+}));
 
 const SocialIcon = styled(Link)(({ theme }) => ({
   width: 40,
@@ -43,7 +135,14 @@ const Footer = () => {
   };
 
   return (
-    <Box component="footer" sx={{ bgcolor: 'primary.main', color: 'white', pt: 8, pb: 2 }}>
+    <FooterWrapper component="footer" sx={{ pt: 8, pb: 2 }}>
+      <div className="bubble" />
+      <div className="bubble" />
+      <div className="bubble" />
+      <div className="bubble" />
+      <div className="bubble" />
+      <div className="bubble" />
+      <div className="bubble" />
       <Container>
         <Grid container spacing={4}>
           <Grid item xs={12} md={4}>
@@ -140,17 +239,19 @@ const Footer = () => {
             alignItems: 'center',
             flexWrap: 'wrap',
             gap: 2,
+            position: 'relative',
+            zIndex: 1,
           }}
         >
           <Typography variant="body2" sx={{ opacity: 0.8 }}>
-            © Copyright Goclean 2024. All right reserved.
+            © Copyright Zegar Elite Cleaning 2024. All right reserved.
           </Typography>
           <Typography variant="body2" sx={{ opacity: 0.8 }}>
-            Created by The_Krishna
+            Created by The Anakin Media Limited
           </Typography>
         </Box>
       </Container>
-    </Box>
+    </FooterWrapper>
   );
 };
 

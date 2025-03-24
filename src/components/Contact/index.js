@@ -1,19 +1,29 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, TextField, Button } from '@mui/material';
+import { Box, Container, Typography, Grid, TextField, Button, MenuItem } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faLocationDot, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const ContactInfo = styled(Box)(({ theme }) => ({
   display: 'flex',
-  alignItems: 'center',
-  marginBottom: theme.spacing(3),
+  alignItems: 'flex-start',
+  height: '100%',
   '& svg': {
-    fontSize: '1.5rem',
+    fontSize: '1.25rem',
     marginRight: theme.spacing(2),
     color: theme.palette.primary.main,
+    marginTop: '4px',
   },
 }));
+
+const services = [
+  'Home Cleaning',
+  'Office Cleaning',
+  'Window Cleaning',
+  'Renovation Cleaning',
+  'Carpet Cleaning',
+  'Commercial Cleaning'
+];
 
 const Contact = () => {
   const handleSubmit = (event) => {
@@ -22,69 +32,103 @@ const Contact = () => {
   };
 
   return (
-    <Box component="section" id="contact" sx={{ py: 8, bgcolor: 'background.paper' }}>
+    <Box component="section" id="contact" sx={{ py: 6, bgcolor: 'background.default' }}>
       <Container>
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="h6" component="span" color="primary" sx={{ display: 'block', mb: 2 }}>
-            Contact Us
-          </Typography>
-          <Typography variant="h2" sx={{ fontWeight: 700, mb: 3, fontSize: { xs: '2rem', md: '2.5rem' } }}>
-            Get In Touch With Us
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto', mb: 4 }}>
-            Have questions about our services? Ready to schedule a cleaning? We're here to help!
-          </Typography>
-        </Box>
-
         <Grid container spacing={4}>
           <Grid item xs={12} md={5}>
-            <ContactInfo>
-              <FontAwesomeIcon icon={faPhone} />
-              <Box>
-                <Typography variant="subtitle2" color="text.secondary">
-                  Phone Number:
-                </Typography>
-                <Typography variant="body1">
-                  +61 234 567 8899
-                </Typography>
-              </Box>
-            </ContactInfo>
+            <Box sx={{ mb: 3 }}>
+              <Typography
+                variant="h6"
+                component="span"
+                color="primary"
+                sx={{
+                  fontSize: '1rem',
+                  fontWeight: 500,
+                  display: 'block',
+                  mb: 1
+                }}
+              >
+                Contact Us
+              </Typography>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: { xs: '1.75rem', md: '2.25rem' },
+                  fontWeight: 700,
+                  color: 'primary.main',
+                  lineHeight: 1.2,
+                  mb: 2,
+                  '& .break': {
+                    display: 'block'
+                  }
+                }}
+              >
+                Feel Free To Contact
+                <span className="break">For Any Kind Of Query</span>
+              </Typography>
+              <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+                Thank you for your interest in hiring Denver Cleaning Service Company.
+                We consider communication with the customer.
+              </Typography>
+            </Box>
 
-            <ContactInfo>
-              <FontAwesomeIcon icon={faEnvelope} />
-              <Box>
-                <Typography variant="subtitle2" color="text.secondary">
-                  Email Address:
-                </Typography>
-                <Typography variant="body1">
-                  info@zegarelite.com
-                </Typography>
-              </Box>
-            </ContactInfo>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={6}>
+                <ContactInfo>
+                  <FontAwesomeIcon icon={faPhone} />
+                  <Box>
+                    <Typography variant="subtitle1" color="primary.main" sx={{ fontWeight: 600, mb: 0.5 }}>
+                      Phone Number:
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
+                      +61 (234) 567 8899
+                    </Typography>
+                  </Box>
+                </ContactInfo>
+              </Grid>
 
-            <ContactInfo>
-              <FontAwesomeIcon icon={faLocationDot} />
-              <Box>
-                <Typography variant="subtitle2" color="text.secondary">
-                  Office Address:
-                </Typography>
-                <Typography variant="body1">
-                  122 Albert St, Melbourne, AU
-                </Typography>
-              </Box>
-            </ContactInfo>
+              <Grid item xs={12} sm={6}>
+                <ContactInfo>
+                  <FontAwesomeIcon icon={faEnvelope} />
+                  <Box>
+                    <Typography variant="subtitle1" color="primary.main" sx={{ fontWeight: 600, mb: 0.5 }}>
+                      Mail Address:
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
+                      info@goclean.com
+                    </Typography>
+                  </Box>
+                </ContactInfo>
+              </Grid>
 
-            <ContactInfo>
-              <FontAwesomeIcon icon={faClock} />
-              <Box>
-                <Typography variant="subtitle2" color="text.secondary">
-                  Working Hours:
-                </Typography>
-                <Typography variant="body1">
-                  Mon - Fri: 09:00 AM - 06:00 PM
-                </Typography>
-              </Box>
-            </ContactInfo>
+              <Grid item xs={12} sm={6}>
+                <ContactInfo>
+                  <FontAwesomeIcon icon={faLocationDot} />
+                  <Box>
+                    <Typography variant="subtitle1" color="primary.main" sx={{ fontWeight: 600, mb: 0.5 }}>
+                      Office Address:
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
+                      122 Albert St, MB, AU
+                    </Typography>
+                  </Box>
+                </ContactInfo>
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <ContactInfo>
+                  <FontAwesomeIcon icon={faClock} />
+                  <Box>
+                    <Typography variant="subtitle1" color="primary.main" sx={{ fontWeight: 600, mb: 0.5 }}>
+                      Opening Time:
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
+                      08:00 AM - 05:00 PM
+                    </Typography>
+                  </Box>
+                </ContactInfo>
+              </Grid>
+            </Grid>
           </Grid>
 
           <Grid item xs={12} md={7}>
@@ -92,66 +136,87 @@ const Contact = () => {
               component="form"
               onSubmit={handleSubmit}
               sx={{
-                p: 4,
-                bgcolor: 'white',
-                borderRadius: 2,
-                boxShadow: 2,
+                p: 0,
+                '& .MuiTextField-root': {
+                  backgroundColor: 'background.paper',
+                  borderRadius: 1,
+                }
               }}
             >
-              <Grid container spacing={3}>
+              <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="First Name"
-                    required
+                    placeholder="First Name*"
                     variant="outlined"
+                    sx={{ bgcolor: 'background.paper' }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Last Name"
-                    required
+                    placeholder="Last Name*"
                     variant="outlined"
+                    sx={{ bgcolor: 'background.paper' }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Email Address"
+                    placeholder="Email Address*"
                     type="email"
-                    required
                     variant="outlined"
+                    sx={{ bgcolor: 'background.paper' }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Phone Number"
-                    required
+                    placeholder="Phone Number*"
                     variant="outlined"
+                    sx={{ bgcolor: 'background.paper' }}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    select
                     fullWidth
-                    label="Message"
+                    defaultValue=""
+                    placeholder="Choose Services*"
+                    sx={{ bgcolor: 'background.paper' }}
+                  >
+                    <MenuItem value="" disabled>Choose Services*</MenuItem>
+                    {services.map((service) => (
+                      <MenuItem key={service} value={service}>
+                        {service}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    placeholder="Message..."
                     multiline
                     rows={4}
-                    required
                     variant="outlined"
+                    sx={{ bgcolor: 'background.paper' }}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <Button
                     type="submit"
                     variant="contained"
-                    color="primary"
-                    size="large"
+                    color="secondary"
                     fullWidth
-                    sx={{ py: 1.5 }}
+                    sx={{
+                      py: 1.5,
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                      borderRadius: 1
+                    }}
                   >
-                    Send Message
+                    Send Us
                   </Button>
                 </Grid>
               </Grid>

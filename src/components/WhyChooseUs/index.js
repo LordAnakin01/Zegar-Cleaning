@@ -1,29 +1,53 @@
 import React from 'react';
 import { Box, Container, Typography, Grid } from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { styled } from '@mui/material/styles';
+
+const FeatureIcon = styled('img')({
+  width: '60px',
+  height: '60px',
+  marginBottom: '20px',
+});
+
+const features = [
+  {
+    icon: '/assets/icons/disinfectant-icon.svg',
+    title: 'Professional Grade Disinfectant',
+    description: 'Scelerisque purus parturient mauris malesuada condimentum porttitor. Magna vitae scelerisque et neque.',
+  },
+  {
+    icon: '/assets/icons/team-icon.svg',
+    title: 'Healthy Teams And Social Distance',
+    description: 'Pretium vulputate est scelerisque pharetra facilisis vitae vel imperdiet enim. Mauris lacus malesuada vel sem.',
+  },
+  {
+    icon: '/assets/icons/tools-icon.svg',
+    title: 'Sterilized & Disinfected Tools',
+    description: 'Diam sit odio lobortis dui. Ipsum sollicitudin quis vitae nisi porttitor quis. Risus viverra nibh lacus amet.',
+  },
+  {
+    icon: '/assets/icons/satisfaction-icon.svg',
+    title: '100% Satisfaction Guarantee',
+    description: 'Lectus vitae eu ut volutpat. Volutpat elit ultricies ac ultrices ac erat a. Est quis adipiscing blandit quam.',
+  },
+];
 
 const WhyChooseUs = () => {
-  const reasons = [
-    'Professional & Experienced Team',
-    'Eco-Friendly Cleaning Products',
-    'Flexible Scheduling Options',
-    '100% Satisfaction Guarantee',
-    'Competitive Pricing',
-    'Insured & Bonded Service'
-  ];
-
   return (
-    <Box component="section" id="why-choose-us" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box component="section" id="why-choose-us" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container>
         <Grid container spacing={6} alignItems="center">
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={7}>
             <Box>
               <Typography
                 variant="h6"
                 component="span"
                 color="primary"
-                sx={{ display: 'block', mb: 2 }}
+                sx={{ 
+                  display: 'block', 
+                  mb: 2,
+                  fontSize: '1rem',
+                  fontWeight: 500
+                }}
               >
                 Why Choose Us
               </Typography>
@@ -31,34 +55,49 @@ const WhyChooseUs = () => {
                 variant="h2"
                 sx={{
                   fontWeight: 700,
-                  mb: 3,
-                  fontSize: { xs: '2rem', md: '2.5rem' },
+                  mb: 4,
+                  fontSize: { xs: '2rem', md: '2.75rem' },
+                  color: 'primary.main'
                 }}
               >
-                Experience the Best in Professional Cleaning
+                Why You Should Hire Us
               </Typography>
-              <Typography
-                variant="body1"
-                color="text.secondary"
-                sx={{ mb: 4 }}
-              >
-                We take pride in delivering exceptional cleaning services that exceed your expectations. Our commitment to quality and customer satisfaction sets us apart.
-              </Typography>
-              <Box>
-                {reasons.map((reason, index) => (
-                  <Box key={index} sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <FontAwesomeIcon icon={faCheck} style={{ color: '#0047CC', marginRight: '8px' }} />
-                    <Typography>{reason}</Typography>
-                  </Box>
+              <Grid container spacing={4}>
+                {features.map((feature, index) => (
+                  <Grid item xs={12} sm={6} key={index}>
+                    <Box sx={{ mb: 4 }}>
+                      <FeatureIcon
+                        src={feature.icon}
+                        alt={feature.title}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{ 
+                          mb: 1, 
+                          fontWeight: 600,
+                          color: 'primary.main',
+                          fontSize: '1.25rem'
+                        }}
+                      >
+                        {feature.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                      >
+                        {feature.description}
+                      </Typography>
+                    </Box>
+                  </Grid>
                 ))}
-              </Box>
+              </Grid>
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <Box
               component="img"
-              src="/assets/why-choose-us.jpg"
-              alt="Professional Cleaning Service"
+              src="/assets/cleaner-with-supplies.jpg"
+              alt="Professional Cleaner with Supplies"
               sx={{
                 width: '100%',
                 height: 'auto',
