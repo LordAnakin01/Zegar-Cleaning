@@ -7,15 +7,11 @@ import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import Stats from '../components/Stats';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
+import Bubbles from '../components/shared/Bubbles';
 
 const float = keyframes`
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
-`;
-
-const bubble = keyframes`
-  0% { transform: translateY(100vh) scale(0); }
-  100% { transform: translateY(-100vh) scale(1); }
 `;
 
 const HeroSection = styled(Box)(({ theme }) => ({
@@ -25,17 +21,6 @@ const HeroSection = styled(Box)(({ theme }) => ({
   position: 'relative',
   minHeight: '500px',
   overflow: 'hidden',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundImage: 'url(/assets/images/bubbles-bg.svg)',
-    backgroundSize: 'cover',
-    opacity: 0.1,
-  }
 }));
 
 const HeroImage = styled('img')(({ theme }) => ({
@@ -47,18 +32,6 @@ const HeroImage = styled('img')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     display: 'none',
   },
-}));
-
-const Bubble = styled('div')<{ delay: number; size: number; left: number }>(({ delay, size, left }) => ({
-  position: 'absolute',
-  bottom: -100,
-  left: `${left}%`,
-  width: size,
-  height: size,
-  borderRadius: '50%',
-  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-  animation: `${bubble} ${8 + delay}s linear infinite`,
-  animationDelay: `${delay}s`,
 }));
 
 const ServicesSection = styled(Box)(({ theme }) => ({
@@ -109,11 +82,6 @@ const ServiceDetails = styled(Box)(({ theme }) => ({
 const ServicesPage = () => {
   const [activeService, setActiveService] = useState(services[0]);
   const navigate = useNavigate();
-  const bubbles = Array.from({ length: 10 }, (_, i) => ({
-    delay: Math.random() * 5,
-    size: 20 + Math.random() * 60,
-    left: Math.random() * 100,
-  }));
 
   const handleLearnMore = (serviceId: string) => {
     navigate(`/services/${serviceId}`);
@@ -122,9 +90,7 @@ const ServicesPage = () => {
   return (
     <>
       <HeroSection>
-        {bubbles.map((bubble, index) => (
-          <Bubble key={index} {...bubble} />
-        ))}
+        <Bubbles count={10} minSize={20} maxSize={60} opacity={0.1} />
         <Container sx={{ position: 'relative', zIndex: 1 }}>
           <Box sx={{ maxWidth: '50%' }}>
             <Typography
