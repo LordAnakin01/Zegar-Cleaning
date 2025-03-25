@@ -21,6 +21,16 @@ const HeroSection = styled(Box)(({ theme }) => ({
   position: 'relative',
   minHeight: '500px',
   overflow: 'hidden',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: `linear-gradient(90deg, ${theme.palette.primary.main}E6 50%, ${theme.palette.primary.main}CC 100%)`,
+    zIndex: 1,
+  },
 }));
 
 const HeroImage = styled('img')(({ theme }) => ({
@@ -37,6 +47,31 @@ const HeroImage = styled('img')(({ theme }) => ({
 const ServicesSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(8, 0),
   backgroundColor: theme.palette.background.default,
+}));
+
+const ServiceCarousel = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  '& .MuiIconButton-root': {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    backgroundColor: theme.palette.secondary.main,
+    color: 'white',
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.dark,
+    },
+    '&.Mui-disabled': {
+      backgroundColor: theme.palette.grey[300],
+      color: theme.palette.grey[500],
+    },
+    zIndex: 1,
+  },
+  '& .prev': {
+    left: -20,
+  },
+  '& .next': {
+    right: -20,
+  },
 }));
 
 const ServiceCard = styled(Box)(({ theme }) => ({
@@ -81,7 +116,20 @@ const ServiceDetails = styled(Box)(({ theme }) => ({
 
 const ServicesPage = () => {
   const [activeService, setActiveService] = useState(services[0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
+
+  const visibleServices = services.slice(currentIndex, currentIndex + 5);
+  const canScrollLeft = currentIndex > 0;
+  const canScrollRight = currentIndex + 5 < services.length;
+
+  const handlePrevClick = () => {
+    setCurrentIndex(Math.max(0, currentIndex - 1));
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex(Math.min(services.length - 5, currentIndex + 1));
+  };
 
   const handleLearnMore = (serviceId: string) => {
     navigate(`/services/${serviceId}`);
@@ -108,7 +156,7 @@ const ServicesPage = () => {
                 Home
               </Link>
               <Typography component="span">{'>'}</Typography>
-              <Typography component="span">Our Services Tab</Typography>
+              <Typography component="span">Our Services</Typography>
             </Box>
           </Box>
         </Container>
@@ -128,41 +176,57 @@ const ServicesPage = () => {
               What We Do For Our Customers
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto' }}>
-              Risus ullamcorper placerat sollicitudin nibh suspendisse. A viverra viverra sit tempus est. 
-              Lacus ut viverra pharetra dictumst. Integer sit morbi ut purus elit amet.
+              Discover our comprehensive range of professional cleaning services designed to meet all your cleaning needs.
+              From residential to commercial, we've got you covered.
             </Typography>
           </Box>
 
-          <Box sx={{ position: 'relative', my: 4 }}>
+          <ServiceCarousel>
             <IconButton
-              sx={{ position: 'absolute', left: -20, top: '50%', transform: 'translateY(-50%)' }}
-              onClick={() => {/* Handle scroll left */}}
+              className="prev"
+              onClick={handlePrevClick}
+              disabled={!canScrollLeft}
             >
               <ChevronLeft />
             </IconButton>
-            <Box sx={{ display: 'flex', gap: 3, overflowX: 'hidden', py: 2 }}>
-              {services.map((service) => (
+            <Box sx={{ display: 'flex', gap: 3, overflowX: 'hidden', py: 2, px: 4 }}>
+              {visibleServices.map((service) => (
                 <Box
-                  key={service.title}
+                  key={service.id}
                   onClick={() => setActiveService(service)}
-                  sx={{ cursor: 'pointer', minWidth: 200 }}
+                  sx={{
+                    flex: '0 0 calc(20% - 12px)',
+                    cursor: 'pointer',
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                    },
+                  }}
                 >
-                  <ServiceIcon active={service.title === activeService.title}>
+                  <ServiceIcon active={service.id === activeService.id}>
                     <img src={service.icon} alt={service.title} />
                   </ServiceIcon>
-                  <Typography align="center" sx={{ mt: 1 }}>
+                  <Typography
+                    align="center"
+                    sx={{
+                      mt: 1,
+                      fontWeight: service.id === activeService.id ? 600 : 400,
+                      color: service.id === activeService.id ? 'primary.main' : 'text.primary',
+                    }}
+                  >
                     {service.title}
                   </Typography>
                 </Box>
               ))}
             </Box>
             <IconButton
-              sx={{ position: 'absolute', right: -20, top: '50%', transform: 'translateY(-50%)' }}
-              onClick={() => {/* Handle scroll right */}}
+              className="next"
+              onClick={handleNextClick}
+              disabled={!canScrollRight}
             >
               <ChevronRight />
             </IconButton>
-          </Box>
+          </ServiceCarousel>
 
           <ServiceDetails>
             <Box sx={{ flex: 1 }}>
@@ -171,12 +235,6 @@ const ServicesPage = () => {
               </Typography>
               <Typography color="text.secondary" sx={{ mb: 4 }}>
                 {activeService.description}
-              </Typography>
-              <Typography variant="h6" color="primary.main" sx={{ mb: 3 }}>
-                Start From
-              </Typography>
-              <Typography variant="h4" color="primary.main" sx={{ mb: 4 }}>
-                ${activeService.price.toFixed(2)}
               </Typography>
               <Button
                 variant="contained"

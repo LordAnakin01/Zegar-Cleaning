@@ -3,9 +3,18 @@ import { Box, Container, Typography, IconButton, Rating } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
+interface TestimonialType {
+  name: string;
+  role: string;
+  image: string;
+  rating: number;
+  comment: string;
+}
+
 const TestimonialsSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(8, 0),
   backgroundColor: theme.palette.background.default,
+  backgroundImage: 'radial-gradient(circle at center, rgba(66, 66, 66, 0.03) 0%, rgba(66, 66, 66, 0) 70%)'
 }));
 
 const TestimonialCard = styled(Box)(({ theme }) => ({
@@ -24,7 +33,7 @@ const Avatar = styled('img')({
   marginBottom: 16,
 });
 
-const testimonials = [
+const testimonials: TestimonialType[] = [
   {
     name: 'Tina Smith',
     role: 'Founder of Pet Group',
@@ -48,7 +57,7 @@ const testimonials = [
   }
 ];
 
-const Testimonials = () => {
+const Testimonials: React.FC = () => {
   return (
     <TestimonialsSection>
       <Container>

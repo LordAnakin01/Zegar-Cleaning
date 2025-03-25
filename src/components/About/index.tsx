@@ -3,6 +3,10 @@ import { Box, Container, Typography, Grid, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Stats from '../Stats';
+import Team from '../Team';
+import Contact from '../Contact';
+import Bubbles from '../shared/Bubbles';
 
 interface FeatureItem {
   text: string;
@@ -15,6 +19,28 @@ interface AboutProps {
   features?: FeatureItem[];
   imagePath?: string;
 }
+
+const HeroSection = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  color: 'white',
+  padding: theme.spacing(12, 0),
+  position: 'relative',
+  backgroundImage: 'url(/assets/bubbles-bg.png)',
+  backgroundSize: 'cover',
+  display: 'flex',
+  alignItems: 'center',
+  minHeight: '400px',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: `linear-gradient(90deg, rgba(66, 66, 66, 0.9) 50%, rgba(66, 66, 66, 0.8) 100%)`,
+    zIndex: 1,
+  },
+}));
 
 const AboutWrapper = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -78,98 +104,131 @@ const FeatureItem = styled(Box)(({ theme }) => ({
   },
 }));
 
-const About: React.FC<AboutProps> = ({
-  title = "Experience Excellence in Professional Cleaning Services",
-  subtitle = "About Our Company",
-  description = "With over 10 years of experience, we've built a reputation for delivering exceptional cleaning services that transform spaces and exceed expectations. Our commitment to quality, attention to detail, and use of eco-friendly products sets us apart in the industry.",
-  features = [
-    { text: "Certified and experienced cleaning professionals" },
-    { text: "Eco-friendly cleaning products and methods" },
-    { text: "Customized cleaning plans for every client" },
-    { text: "100% satisfaction guarantee" },
-    { text: "Flexible scheduling options" },
-    { text: "Comprehensive insurance coverage" },
-  ],
-  imagePath = "/assets/images/about-cleaning.jpg",
-}) => {
+const About: React.FC = () => {
+  const benefits = [
+    'We are Committed',
+    'Insured & Bonded',
+    'Residential Cleaning',
+    'Highly Rated Cleaning',
+    'Trusted Professionals',
+    'Commercial Cleaning',
+  ];
+
   return (
-    <AboutWrapper>
-      <Container>
-        <Grid container spacing={6} alignItems="center">
-          <Grid item xs={12} md={6}>
-            <ImageWrapper>
-              <img src={imagePath} alt="Professional Cleaning Services" />
-            </ImageWrapper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Box>
+    <>
+      <HeroSection>
+        <Bubbles count={10} minSize={20} maxSize={60} opacity={0.1} />
+        <Container>
+          <Box sx={{ position: 'relative', zIndex: 2 }}>
+            <Typography variant="h1" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
+              About Us
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 1 }}>
+              <Typography component="span">Home</Typography>
+              <Typography component="span">{'>'}</Typography>
+              <Typography component="span">About Us</Typography>
+            </Box>
+          </Box>
+        </Container>
+      </HeroSection>
+
+      <Box component="section" sx={{ py: 8 }}>
+        <Container>
+          <Grid container spacing={6} alignItems="center">
+            <Grid item xs={12} md={6}>
+              <Box sx={{ position: 'relative' }}>
+                <Box
+                  component="img"
+                  src="/assets/about-cleaning.jpg"
+                  alt="Professional Cleaning Service"
+                  sx={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: 2,
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: -20,
+                    left: -20,
+                    bgcolor: 'primary.main',
+                    color: 'white',
+                    p: 3,
+                    borderRadius: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                  }}
+                >
+                  <Box component="a" href="tel:+61250325-9988" sx={{ color: 'white', textDecoration: 'none' }}>
+                    <Typography variant="h6">CALL US</Typography>
+                    <Typography>+61 (250) 325-9988</Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6}>
               <Typography
-                variant="subtitle1"
-                color="secondary"
-                sx={{
-                  fontWeight: 600,
-                  mb: 2,
-                  textTransform: 'uppercase',
-                  letterSpacing: 1,
-                }}
+                variant="h6"
+                component="span"
+                color="primary"
+                sx={{ display: 'block', mb: 2 }}
               >
-                {subtitle}
+                About Goclean
               </Typography>
               <Typography
-                variant="h3"
+                variant="h2"
                 sx={{
                   fontWeight: 700,
                   mb: 3,
                   fontSize: { xs: '2rem', md: '2.5rem' },
-                  lineHeight: 1.2,
                 }}
               >
-                {title}
+                Committed to Give High Quality Cleaning Services
               </Typography>
               <Typography
                 variant="body1"
-                sx={{
-                  color: 'text.secondary',
-                  mb: 4,
-                  fontSize: '1.1rem',
-                  lineHeight: 1.6,
-                }}
+                color="text.secondary"
+                sx={{ mb: 4 }}
               >
-                {description}
+                With over a decade of experience in the cleaning industry, we've built a reputation for delivering exceptional cleaning services that transform spaces and exceed expectations. Our commitment to quality, attention to detail, and use of eco-friendly products sets us apart.
               </Typography>
-              <Box sx={{ mb: 4 }}>
-                <Grid container spacing={2}>
-                  {features.map((feature, index) => (
-                    <Grid item xs={12} sm={6} key={index}>
-                      <FeatureItem>
-                        <span className="icon">
-                          <FontAwesomeIcon icon={faCheck} />
-                        </span>
-                        <Typography variant="body1">{feature.text}</Typography>
-                      </FeatureItem>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Box>
+
+              <Grid container spacing={2} sx={{ mb: 4 }}>
+                {benefits.map((benefit, index) => (
+                  <Grid item xs={12} sm={6} key={index}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                      <FontAwesomeIcon icon={faCheck} color="#FFB800" />
+                      <Typography>{benefit}</Typography>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+
               <Button
                 variant="contained"
-                color="secondary"
+                color="primary"
                 size="large"
-                endIcon={<FontAwesomeIcon icon={faArrowRight} />}
-                sx={{
-                  py: 1.5,
-                  px: 4,
-                  borderRadius: 2,
-                  fontSize: '1.1rem',
-                }}
+                href="#services"
+                sx={{ px: 4 }}
               >
-                Learn More
+                View All Services
               </Button>
-            </Box>
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </AboutWrapper>
+        </Container>
+      </Box>
+
+      {/* Stats Section */}
+      <Stats />
+
+      {/* Team Section */}
+      <Team />
+
+      {/* Contact Section */}
+      <Contact />
+    </>
   );
 };
 

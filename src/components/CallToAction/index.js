@@ -83,7 +83,7 @@ const CallToAction = () => {
         sx={{ 
           py: 8, 
           bgcolor: 'primary.main',
-          backgroundImage: 'linear-gradient(rgba(0, 71, 204, 0.95), rgba(0, 71, 204, 0.95)), url(/assets/cleaning-bg.jpg)',
+          backgroundImage: 'linear-gradient(rgba(66, 66, 66, 0.95), rgba(66, 66, 66, 0.95)), url(/assets/cleaning-bg.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: 'white',

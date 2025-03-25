@@ -2,7 +2,18 @@ import React from 'react';
 import { Box, Container, Typography, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faBuilding, faWindowMaximize, faPaintRoller, faBroom, faCity } from '@fortawesome/free-solid-svg-icons';
+import { 
+  faHome, 
+  faBuilding, 
+  faWindowMaximize, 
+  faPaintRoller, 
+  faBroom, 
+  faCity,
+  faSprayCanSparkles,
+  faLeaf,
+  faCouch,
+  faHouseMedical
+} from '@fortawesome/free-solid-svg-icons';
 
 const ServiceCard = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
@@ -15,7 +26,7 @@ const ServiceCard = styled(Paper)(({ theme }) => ({
 }));
 
 const IconWrapper = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.secondary.main,
   color: 'white',
   width: 80,
   height: 80,
@@ -60,6 +71,26 @@ const services = [
     icon: faCity,
     title: 'Commercial Cleaning',
     description: 'Comprehensive cleaning solutions for all types of commercial spaces.',
+  },
+  {
+    icon: faSprayCanSparkles,
+    title: 'Deep Cleaning',
+    description: 'Thorough deep cleaning service that reaches every corner and surface.',
+  },
+  {
+    icon: faLeaf,
+    title: 'Green Cleaning',
+    description: 'Eco-friendly cleaning solutions that are safe for your family and the environment.',
+  },
+  {
+    icon: faCouch,
+    title: 'Upholstery Cleaning',
+    description: 'Professional cleaning for furniture, sofas, and other upholstered items.',
+  },
+  {
+    icon: faHouseMedical,
+    title: 'Sanitization Services',
+    description: 'Complete sanitization and disinfection for a healthier environment.',
   },
 ];
 

@@ -69,9 +69,8 @@ const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const Navbar: React.FC = () => {
@@ -155,12 +154,14 @@ const Navbar: React.FC = () => {
               <Button
                 variant="contained"
                 color="secondary"
-                href="#estimate"
+                component={Link}
+                to="/quote"
                 sx={{ 
-                  height: 'fit-content'
+                  height: 'fit-content',
+                  whiteSpace: 'nowrap'
                 }}
               >
-                Request An Estimate
+                Get A Quote
               </Button>
             </QuickContact>
 
@@ -202,6 +203,11 @@ const Navbar: React.FC = () => {
                 )}
               </ListItem>
             ))}
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/quote">
+                <ListItemText primary="Get A Quote" />
+              </ListItemButton>
+            </ListItem>
           </List>
         </Box>
       </Drawer>

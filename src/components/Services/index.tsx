@@ -3,8 +3,16 @@ import { Box, Container, Typography, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faHome, faBuilding, faWindowMaximize, 
-  faPaintRoller, faBroom, faCity 
+  faHome, 
+  faBuilding, 
+  faWindowMaximize, 
+  faPaintRoller, 
+  faBroom, 
+  faCity,
+  faSprayCanSparkles,
+  faLeaf,
+  faCouch,
+  faHouseMedical
 } from '@fortawesome/free-solid-svg-icons';
 
 const ServiceCard = styled(Paper)(({ theme }) => ({
@@ -18,7 +26,7 @@ const ServiceCard = styled(Paper)(({ theme }) => ({
 }));
 
 const IconWrapper = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.secondary.main,
   color: 'white',
   width: 80,
   height: 80,
@@ -64,6 +72,26 @@ const services = [
     title: 'Commercial Cleaning',
     description: 'Comprehensive cleaning solutions for all types of commercial spaces.',
   },
+  {
+    icon: faSprayCanSparkles,
+    title: 'Deep Cleaning',
+    description: 'Thorough deep cleaning service that reaches every corner and surface.',
+  },
+  {
+    icon: faLeaf,
+    title: 'Green Cleaning',
+    description: 'Eco-friendly cleaning solutions that are safe for your family and the environment.',
+  },
+  {
+    icon: faCouch,
+    title: 'Upholstery Cleaning',
+    description: 'Professional cleaning for furniture, sofas, and other upholstered items.',
+  },
+  {
+    icon: faHouseMedical,
+    title: 'Sanitization Services',
+    description: 'Complete sanitization and disinfection for a healthier environment.',
+  },
 ];
 
 const Services = () => {
@@ -99,16 +127,38 @@ const Services = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
+        <Grid 
+          container 
+          spacing={4} 
+          sx={{ 
+            justifyContent: { 
+              xs: 'center',
+              sm: 'flex-start'
+            } 
+          }}
+        >
           {services.map((service, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid 
+              item 
+              xs={12} 
+              sm={6} 
+              md={4} 
+              key={index}
+              sx={{
+                maxWidth: {
+                  xs: '100%',
+                  sm: '50%',
+                  md: '33.333%'
+                }
+              }}
+            >
               <ServiceCard elevation={2}>
                 <IconWrapper>
                   <FontAwesomeIcon icon={service.icon} />
                 </IconWrapper>
                 <Typography
                   variant="h5"
-                  sx={{ mb: 2, fontWeight: 600 }}
+                  sx={{ mb: 2, fontWeight: 600, color: 'primary.main' }}
                 >
                   {service.title}
                 </Typography>
