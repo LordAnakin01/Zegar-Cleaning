@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Grid, TextField, Button, Link } from '@mui/material';
 import { styled, keyframes } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faTwitter, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 const rise = keyframes`
   0% {
@@ -128,8 +128,8 @@ const Logo = styled('img')({
   marginBottom: 16,
 });
 
-const Footer = () => {
-  const handleNewsletterSubmit = (event) => {
+const Footer: React.FC = () => {
+  const handleNewsletterSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     // Handle newsletter subscription
   };
@@ -162,7 +162,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faInstagram} />
                 </SocialIcon>
                 <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={faLinkedin} />
+                  <FontAwesomeIcon icon={faLinkedinIn} />
                 </SocialIcon>
               </Box>
             </Box>
