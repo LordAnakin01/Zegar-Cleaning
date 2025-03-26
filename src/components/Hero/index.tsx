@@ -3,6 +3,7 @@ import { Box, Container, Typography, Button, Grid } from '@mui/material';
 import { styled, keyframes } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faPlay } from '@fortawesome/free-solid-svg-icons';
+import Bubbles from '../shared/Bubbles';
 
 interface HeroProps {
   title?: string;
@@ -42,12 +43,9 @@ const HeroWrapper = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: 'white',
   overflow: 'hidden',
-  paddingTop: theme.spacing(12),
-  paddingBottom: theme.spacing(12),
-  [theme.breakpoints.up('md')]: {
-    paddingTop: theme.spacing(16),
-    paddingBottom: theme.spacing(16),
-  },
+  minHeight: '600px',
+  display: 'flex',
+  alignItems: 'center',
   '&::before, &::after': {
     content: '""',
     position: 'absolute',
@@ -69,7 +67,10 @@ const HeroWrapper = styled(Box)(({ theme }) => ({
 const HeroImage = styled('img')({
   width: '100%',
   height: 'auto',
+  maxHeight: '600px',
+  objectFit: 'contain',
   animation: `${float} 6s ease-in-out infinite`,
+  marginBottom: '-50px',
 });
 
 const PlayButton = styled(Button)(({ theme }) => ({
@@ -105,8 +106,17 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <HeroWrapper>
+      <Bubbles count={10} minSize={20} maxSize={60} opacity={0.1} />
       <Container>
-        <Grid container spacing={4} alignItems="center">
+        <Grid 
+          container 
+          spacing={4} 
+          alignItems="center"
+          sx={{
+            minHeight: '600px',
+            py: { xs: 4, md: 0 }
+          }}
+        >
           <Grid item xs={12} md={6}>
             <Box sx={{ maxWidth: 600 }}>
               <Typography
@@ -170,10 +180,23 @@ const Hero: React.FC<HeroProps> = ({
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid 
+            item 
+            xs={12} 
+            md={6}
+            sx={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              height: '100%'
+            }}
+          >
             <Box
               sx={{
                 position: 'relative',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'flex-end',
                 '&::before': {
                   content: '""',
                   position: 'absolute',

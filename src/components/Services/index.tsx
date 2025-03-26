@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { 
   faHome, 
   faBuilding, 
@@ -11,8 +12,7 @@ import {
   faCity,
   faSprayCanSparkles,
   faLeaf,
-  faCouch,
-  faHouseMedical
+  faCouch
 } from '@fortawesome/free-solid-svg-icons';
 
 const ServiceCard = styled(Paper)(({ theme }) => ({
@@ -41,7 +41,15 @@ const IconWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-const services = [
+interface ServiceItem {
+  type?: 'custom';
+  icon?: IconDefinition;
+  iconSrc?: string;
+  title: string;
+  description: string;
+}
+
+const services: ServiceItem[] = [
   {
     icon: faHome,
     title: 'Home Cleaning',
@@ -88,9 +96,10 @@ const services = [
     description: 'Professional cleaning for furniture, sofas, and other upholstered items.',
   },
   {
-    icon: faHouseMedical,
-    title: 'Sanitization Services',
-    description: 'Complete sanitization and disinfection for a healthier environment.',
+    type: 'custom',
+    iconSrc: '/assets/icons/sanitization-disinfection.svg',
+    title: 'Sanitization & Disinfection',
+    description: 'Professional sanitization and disinfection services to eliminate germs and create a healthier environment.',
   },
 ];
 
@@ -154,7 +163,15 @@ const Services = () => {
             >
               <ServiceCard elevation={2}>
                 <IconWrapper>
-                  <FontAwesomeIcon icon={service.icon} />
+                  {service.type === 'custom' ? (
+                    <img 
+                      src={service.iconSrc} 
+                      alt={service.title}
+                      style={{ width: 32, height: 32 }}
+                    />
+                  ) : (
+                    <FontAwesomeIcon icon={service.icon!} />
+                  )}
                 </IconWrapper>
                 <Typography
                   variant="h5"

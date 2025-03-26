@@ -3,6 +3,7 @@ import { Box, Container, Typography, Grid, TextField, Button, Link } from '@mui/
 import { styled, keyframes } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import Bubbles from '../shared/Bubbles';
 
 const rise = keyframes`
   0% {
@@ -136,13 +137,7 @@ const Footer: React.FC = () => {
 
   return (
     <FooterWrapper component="footer" sx={{ pt: 8, pb: 2 }}>
-      <div className="bubble" />
-      <div className="bubble" />
-      <div className="bubble" />
-      <div className="bubble" />
-      <div className="bubble" />
-      <div className="bubble" />
-      <div className="bubble" />
+      <Bubbles count={10} minSize={20} maxSize={60} opacity={0.05} />
       <Container>
         <Grid container spacing={4}>
           <Grid item xs={12} md={4}>
