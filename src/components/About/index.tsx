@@ -145,6 +145,12 @@ const FeatureItem = styled(Box)(({ theme }) => ({
   },
 }));
 
+const CheckItem = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  gap: theme.spacing(2),
+}));
+
 const About: React.FC = () => {
   const benefits = [
     'We are Committed',
@@ -153,6 +159,29 @@ const About: React.FC = () => {
     'Highly Rated Cleaning',
     'Trusted Professionals',
     'Commercial Cleaning',
+  ];
+
+  const teamMembers = [
+    {
+      name: 'Gloria Collins Zegar',
+      position: 'Founder & CEO',
+      image: '/assets/team/team-1.jpg',
+    },
+    {
+      name: 'Elizabeth Adebayo',
+      position: 'Operations Manager',
+      image: '/assets/team/team-2.jpg',
+    },
+    {
+      name: 'Samuel Okonkwo',
+      position: 'Quality Assurance Lead',
+      image: '/assets/team/team-3.jpg',
+    },
+    {
+      name: 'Aisha Mohammed',
+      position: 'Client Relations Manager',
+      image: '/assets/team/team-4.jpg',
+    },
   ];
 
   return (
@@ -221,7 +250,7 @@ const About: React.FC = () => {
                 color="primary"
                 sx={{ display: 'block', mb: 2 }}
               >
-                About Goclean
+                The Zegar Elite Story
               </Typography>
               <Typography
                 variant="h2"
@@ -231,23 +260,30 @@ const About: React.FC = () => {
                   fontSize: { xs: '2rem', md: '2.5rem' },
                 }}
               >
-                Committed to Give High Quality Cleaning Services
+                Setting New Standards in Professional Cleaning
               </Typography>
               <Typography
                 variant="body1"
                 color="text.secondary"
                 sx={{ mb: 4 }}
               >
-                With over a decade of experience in the cleaning industry, we've built a reputation for delivering exceptional cleaning services that transform spaces and exceed expectations. Our commitment to quality, attention to detail, and use of eco-friendly products sets us apart.
+                Founded with a vision to revolutionize the cleaning industry in Nigeria, Zegar Elite has grown to become a trusted name in professional cleaning services. Our journey began with a commitment to excellence and has evolved into a comprehensive service provider that combines traditional values with modern cleaning technologies. We take pride in our highly trained staff, eco-friendly cleaning solutions, and our unwavering dedication to customer satisfaction.
               </Typography>
 
               <Grid container spacing={2} sx={{ mb: 4 }}>
-                {benefits.map((benefit, index) => (
+                {[
+                  'Certified & Insured Professionals',
+                  'Eco-Friendly Cleaning Solutions',
+                  'Customized Service Plans',
+                  'Satisfaction Guaranteed',
+                  'Advanced Cleaning Technology',
+                  'Flexible Scheduling Options'
+                ].map((benefit, index) => (
                   <Grid item xs={12} sm={6} key={index}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <FontAwesomeIcon icon={faCheck} color="#FFB800" />
+                    <CheckItem>
+                      <FontAwesomeIcon icon={faCheck} />
                       <Typography>{benefit}</Typography>
-                    </Box>
+                    </CheckItem>
                   </Grid>
                 ))}
               </Grid>

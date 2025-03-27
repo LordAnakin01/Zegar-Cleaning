@@ -114,7 +114,7 @@ const Services = () => {
             color="primary"
             sx={{ display: 'block', mb: 2 }}
           >
-            Our Services
+            Excellence in Service
           </Typography>
           <Typography
             variant="h2"
@@ -124,15 +124,14 @@ const Services = () => {
               fontSize: { xs: '2rem', md: '2.5rem' },
             }}
           >
-            Professional Cleaning Services
+            Elevating Cleanliness to an Art Form
           </Typography>
           <Typography
             variant="body1"
             color="text.secondary"
             sx={{ maxWidth: 600, mx: 'auto' }}
           >
-            We provide comprehensive cleaning solutions for homes and businesses,
-            ensuring the highest standards of cleanliness and hygiene.
+            Experience the difference with Zegar Elite Cleaning, where precision meets passion. Our expert team delivers exceptional results through innovative methods and unwavering commitment to quality.
           </Typography>
         </Box>
 

@@ -202,22 +202,23 @@ const QuotePage = () => {
                   Get A Quote
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
-                  Nullam sed faucibus diam leo nunc porttitor amet ultrices orci. Ipsum adipiscing lorem dictum ut dictum pharetra tincidunt nisi sit. Vulputate pulvinar vel ultrices faucibus. Natoque urna.
+                  Ready to experience the Zegar Elite difference? Fill out our quick quote form below, and we'll provide you with a detailed estimate tailored to your specific cleaning needs. Our team is committed to delivering exceptional service at competitive rates.
                 </Typography>
               </Box>
 
               <Box component="form" onSubmit={handleSubmit}>
                 <StyledFormControl>
-                  <InputLabel>Choose your service</InputLabel>
+                  <InputLabel>Select Service Type</InputLabel>
                   <Select
                     name="service"
                     value={formData.service}
                     onChange={handleSelectChange}
-                    label="Choose your service"
+                    label="Select Service Type"
                   >
-                    <MenuItem value="office">Office Cleaning</MenuItem>
-                    <MenuItem value="home">Home Cleaning</MenuItem>
+                    <MenuItem value="residential">Residential Cleaning</MenuItem>
                     <MenuItem value="commercial">Commercial Cleaning</MenuItem>
+                    <MenuItem value="industrial">Industrial Cleaning</MenuItem>
+                    <MenuItem value="specialized">Specialized Cleaning</MenuItem>
                   </Select>
                 </StyledFormControl>
 

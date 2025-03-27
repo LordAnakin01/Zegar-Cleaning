@@ -40,12 +40,10 @@ const Contact = () => {
             </Typography>
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 700, mb: 3, color: 'primary.main' }}>
-            Feel Free To Contact<br />
-            For Any Kind Of Query.
+            Let's Discuss Your Cleaning Needs
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Thank you for your interest in hiring Denver Cleaning Service Company.
-            We consider communication with the customer.
+            Ready to experience the Zegar Elite difference? Our dedicated team is here to understand your needs and create a tailored cleaning solution that works for you.
           </Typography>
         </Box>
 
@@ -55,7 +53,7 @@ const Contact = () => {
               <FontAwesomeIcon icon={faPhone} />
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Phone Number:
+                  Call Us Directly:
                 </Typography>
                 <Typography variant="body1">
                   +234 91 3269 4678
@@ -67,7 +65,7 @@ const Contact = () => {
               <FontAwesomeIcon icon={faEnvelope} />
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Mail Address:
+                  Email Us:
                 </Typography>
                 <Typography variant="body1">
                   enquiries@zegarcleaning.com
@@ -79,10 +77,10 @@ const Contact = () => {
               <FontAwesomeIcon icon={faLocationDot} />
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Office Address:
+                  Visit Our Office:
                 </Typography>
                 <Typography variant="body1">
-                  House 16B Paradise Court Idu, FCT, Abuja.
+                  House 16B Paradise Court Idu, FCT, Abuja
                 </Typography>
               </Box>
             </ContactInfo>
@@ -106,14 +104,14 @@ const Contact = () => {
                 <Grid item xs={12} sm={6}>
                   <StyledTextField
                     fullWidth
-                    placeholder="First Name*"
+                    placeholder="Your First Name*"
                     variant="outlined"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <StyledTextField
                     fullWidth
-                    placeholder="Last Name*"
+                    placeholder="Your Last Name*"
                     variant="outlined"
                   />
                 </Grid>
@@ -123,7 +121,7 @@ const Contact = () => {
                 <Grid item xs={12} sm={6}>
                   <StyledTextField
                     fullWidth
-                    placeholder="Email Address*"
+                    placeholder="Your Email Address*"
                     type="email"
                     variant="outlined"
                   />
@@ -131,7 +129,7 @@ const Contact = () => {
                 <Grid item xs={12} sm={6}>
                   <StyledTextField
                     fullWidth
-                    placeholder="Phone Number*"
+                    placeholder="Your Phone Number*"
                     variant="outlined"
                   />
                 </Grid>
@@ -140,22 +138,24 @@ const Contact = () => {
               <StyledTextField
                 select
                 fullWidth
-                placeholder="Choose Services*"
+                placeholder="Select Service*"
                 variant="outlined"
                 SelectProps={{
                   native: true,
                 }}
               >
-                <option value="" disabled selected>Choose Services*</option>
-                <option value="home">Home Cleaning</option>
-                <option value="office">Office Cleaning</option>
-                <option value="commercial">Commercial Cleaning</option>
-                <option value="carpet">Carpet Cleaning</option>
+                <option value="" disabled selected>Select Your Desired Service*</option>
+                <option value="home">Residential Cleaning</option>
+                <option value="office">Commercial Cleaning</option>
+                <option value="deep">Deep Cleaning</option>
+                <option value="carpet">Carpet & Upholstery</option>
+                <option value="window">Window Cleaning</option>
+                <option value="other">Other Services</option>
               </StyledTextField>
 
               <StyledTextField
                 fullWidth
-                placeholder="Message..."
+                placeholder="Tell us about your cleaning needs..."
                 multiline
                 rows={4}
                 variant="outlined"
@@ -172,7 +172,7 @@ const Contact = () => {
                   fontWeight: 600,
                 }}
               >
-                Send Us
+                Request a Quote
               </Button>
             </Box>
           </Grid>

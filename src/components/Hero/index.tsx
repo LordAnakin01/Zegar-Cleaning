@@ -4,6 +4,7 @@ import { styled, keyframes } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faPlay } from '@fortawesome/free-solid-svg-icons';
 import Bubbles from '../shared/Bubbles';
+import { Link } from 'react-router-dom';
 
 interface HeroProps {
   title?: string;
@@ -104,6 +105,11 @@ const Hero: React.FC<HeroProps> = ({
     console.log('Play video');
   };
 
+  const handleVideoOpen = () => {
+    // Implement video open functionality
+    console.log('Open video');
+  };
+
   return (
     <HeroWrapper>
       <Bubbles count={10} minSize={20} maxSize={60} opacity={0.1} />
@@ -120,63 +126,50 @@ const Hero: React.FC<HeroProps> = ({
           <Grid item xs={12} md={6}>
             <Box sx={{ maxWidth: 600 }}>
               <Typography
-                variant="h1"
-                sx={{
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
-                  fontWeight: 700,
-                  mb: 3,
-                  lineHeight: 1.2,
-                }}
+                variant="subtitle1"
+                sx={{ fontWeight: 500, mb: 2, color: 'white' }}
               >
-                {title}
+                Welcome to Zegar Elite
               </Typography>
               <Typography
-                variant="h6"
+                variant="h1"
                 sx={{
-                  opacity: 0.8,
-                  mb: 4,
-                  fontSize: { xs: '1rem', md: '1.25rem' },
-                  lineHeight: 1.6,
+                  fontWeight: 700,
+                  mb: 3,
+                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  lineHeight: 1.2,
+                  color: 'white'
                 }}
               >
-                {subtitle}
+                Elevating Spaces<br />
+                Through Excellence
               </Typography>
-              <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+              <Typography
+                variant="body1"
+                sx={{ mb: 4, fontSize: '1.1rem', color: 'rgba(255, 255, 255, 0.9)' }}
+              >
+                Experience the pinnacle of professional cleaning services with Zegar Elite. We combine innovative techniques with meticulous attention to detail, ensuring your space reflects the excellence you deserve.
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
                 <Button
                   variant="contained"
                   color="secondary"
                   size="large"
-                  endIcon={<FontAwesomeIcon icon={faArrowRight} />}
-                  sx={{
-                    py: 1.5,
-                    px: 4,
-                    borderRadius: 2,
-                    fontSize: '1.1rem',
-                  }}
+                  component={Link}
+                  to="/quote"
+                  sx={{ px: 4 }}
                 >
-                  Book Now
+                  Get Your Quote
                 </Button>
-                {showVideo && (
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ position: 'relative' }}>
-                      <div className="pulse-ring" />
-                      <PlayButton onClick={handleVideoPlay}>
-                        <FontAwesomeIcon icon={faPlay} />
-                      </PlayButton>
-                    </Box>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        opacity: 0.8,
-                        cursor: 'pointer',
-                        '&:hover': { opacity: 1 },
-                      }}
-                      onClick={handleVideoPlay}
-                    >
-                      Watch Video
-                    </Typography>
-                  </Box>
-                )}
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="large"
+                  onClick={handleVideoOpen}
+                  startIcon={<FontAwesomeIcon icon={faPlay} />}
+                >
+                  Watch How We Work
+                </Button>
               </Box>
             </Box>
           </Grid>
