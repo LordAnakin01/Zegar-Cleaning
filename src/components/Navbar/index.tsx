@@ -45,6 +45,7 @@ const ContactInfo = styled(Box)(({ theme }) => ({
 
 const Logo = styled('img')({
   height: 50,
+  width: 'auto',
 });
 
 const NavLinks = styled(Box)(({ theme }) => ({
@@ -121,7 +122,7 @@ const Navbar: React.FC = () => {
           <Toolbar disableGutters>
             <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
               <Link to="/">
-                <Logo src="/assets/logo.png" alt="Zegar Elite Cleaning" />
+                <Logo src="/assets/logo.svg" alt="Zegar Elite Cleaning" />
               </Link>
             </Box>
 

@@ -33,17 +33,6 @@ const HeroSection = styled(Box)(({ theme }) => ({
   },
 }));
 
-const HeroImage = styled('img')(({ theme }) => ({
-  position: 'absolute',
-  right: 0,
-  bottom: 0,
-  height: '110%',
-  animation: `${float} 6s ease-in-out infinite`,
-  [theme.breakpoints.down('md')]: {
-    display: 'none',
-  },
-}));
-
 const ServicesSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(8, 0),
   backgroundColor: theme.palette.background.default,
@@ -160,7 +149,6 @@ const ServicesPage = () => {
             </Box>
           </Box>
         </Container>
-        <HeroImage src="/assets/images/cleaner-hero.png" alt="Professional Cleaner" />
       </HeroSection>
 
       <ServicesSection>

@@ -7,6 +7,7 @@ import Stats from '../Stats';
 import Team from '../Team';
 import Contact from '../Contact';
 import Bubbles from '../shared/Bubbles';
+import { keyframes } from '@emotion/react';
 
 interface FeatureItem {
   text: string;
@@ -29,7 +30,10 @@ const HeroSection = styled(Box)(({ theme }) => ({
   backgroundSize: 'cover',
   display: 'flex',
   alignItems: 'center',
-  minHeight: '400px',
+  minHeight: '500px',
+  overflow: 'hidden',
+  marginTop: '-64px',
+  paddingTop: theme.spacing(16),
   '&::before': {
     content: '""',
     position: 'absolute',
@@ -41,6 +45,43 @@ const HeroSection = styled(Box)(({ theme }) => ({
     zIndex: 1,
   },
 }));
+
+const HeroContent = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  zIndex: 2,
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: '100%',
+  gap: theme.spacing(4),
+  '& > *:first-of-type': {
+    flex: 1,
+  },
+  '& > *:last-child': {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+}));
+
+const HeroImage = styled('img')(({ theme }) => ({
+  maxHeight: '500px',
+  position: 'relative',
+  marginBottom: '-120px',
+  transition: 'transform 0.6s ease-in-out',
+  animation: `${float} 6s ease-in-out infinite`,
+  '&:hover': {
+    transform: 'translateY(-10px)',
+  },
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+}));
+
+const float = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+`;
 
 const AboutWrapper = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -119,16 +160,21 @@ const About: React.FC = () => {
       <HeroSection>
         <Bubbles count={10} minSize={20} maxSize={60} opacity={0.1} />
         <Container>
-          <Box sx={{ position: 'relative', zIndex: 2 }}>
-            <Typography variant="h1" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-              About Us
-            </Typography>
-            <Box sx={{ display: 'flex', gap: 1 }}>
-              <Typography component="span">Home</Typography>
-              <Typography component="span">{'>'}</Typography>
-              <Typography component="span">About Us</Typography>
+          <HeroContent>
+            <Box>
+              <Typography variant="h1" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
+                About Us
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 1 }}>
+                <Typography component="span">Home</Typography>
+                <Typography component="span">{'>'}</Typography>
+                <Typography component="span">About Us</Typography>
+              </Box>
             </Box>
-          </Box>
+            <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+              <HeroImage src="/assets/cleaner-hero.png" alt="Professional Cleaner" />
+            </Box>
+          </HeroContent>
         </Container>
       </HeroSection>
 
