@@ -81,7 +81,7 @@ const Contact = () => {
                       Phone Number:
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                      +61 (234) 567 8899
+                      +234 91 3269 4678
                     </Typography>
                   </Box>
                 </ContactInfo>
@@ -95,7 +95,7 @@ const Contact = () => {
                       Mail Address:
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                      info@goclean.com
+                      enquiries@zegarcleaning.com
                     </Typography>
                   </Box>
                 </ContactInfo>
@@ -109,7 +109,7 @@ const Contact = () => {
                       Office Address:
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                      122 Albert St, MB, AU
+                      House 16B Paradise Court Idu, FCT, Abuja.
                     </Typography>
                   </Box>
                 </ContactInfo>
@@ -120,10 +120,10 @@ const Contact = () => {
                   <FontAwesomeIcon icon={faClock} />
                   <Box>
                     <Typography variant="subtitle1" color="primary.main" sx={{ fontWeight: 600, mb: 0.5 }}>
-                      Opening Time:
+                      Business Hours:
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                      08:00 AM - 05:00 PM
+                      09:00AM - 05:00PM
                     </Typography>
                   </Box>
                 </ContactInfo>

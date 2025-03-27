@@ -207,9 +207,9 @@ const About: React.FC = () => {
                     gap: 2,
                   }}
                 >
-                  <Box component="a" href="tel:+61250325-9988" sx={{ color: 'white', textDecoration: 'none' }}>
+                  <Box component="a" href="tel:+2349132694678" sx={{ color: 'white', textDecoration: 'none' }}>
                     <Typography variant="h6">CALL US</Typography>
-                    <Typography>+61 (250) 325-9988</Typography>
+                    <Typography>+234 91 3269 4678</Typography>
                   </Box>
                 </Box>
               </Box>

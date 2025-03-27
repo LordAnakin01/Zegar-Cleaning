@@ -461,11 +461,8 @@ const ServiceDetailPage: React.FC = () => {
                     >
                       Contact Us
                     </Button>
-                    <Typography variant="body2" align="center">
-                      or call us at
-                    </Typography>
-                    <Typography variant="h6" align="center" color="primary.main">
-                      +61 (234) 567 8999
+                    <Typography variant="body1">
+                      +234 91 3269 4678
                     </Typography>
                   </CardContent>
                 </Card>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Container, Typography, Grid, TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Phone, Email, LocationOn, AccessTime } from '@mui/icons-material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faEnvelope, faLocationDot, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const ContactSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(8, 0),
@@ -50,49 +52,49 @@ const Contact = () => {
         <Grid container spacing={6}>
           <Grid item xs={12} md={5}>
             <ContactInfo>
-              <Phone />
+              <FontAwesomeIcon icon={faPhone} />
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
                   Phone Number:
                 </Typography>
                 <Typography variant="body1">
-                  +61 (234) 567 8999
+                  +234 91 3269 4678
                 </Typography>
               </Box>
             </ContactInfo>
 
             <ContactInfo>
-              <Email />
+              <FontAwesomeIcon icon={faEnvelope} />
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
                   Mail Address:
                 </Typography>
                 <Typography variant="body1">
-                  info@goclean.com
+                  enquiries@zegarcleaning.com
                 </Typography>
               </Box>
             </ContactInfo>
 
             <ContactInfo>
-              <LocationOn />
+              <FontAwesomeIcon icon={faLocationDot} />
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
                   Office Address:
                 </Typography>
                 <Typography variant="body1">
-                  122 Albert St, MB, AU
+                  House 16B Paradise Court Idu, FCT, Abuja.
                 </Typography>
               </Box>
             </ContactInfo>
 
             <ContactInfo>
-              <AccessTime />
+              <FontAwesomeIcon icon={faClock} />
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Opening Time:
+                  Business Hours:
                 </Typography>
                 <Typography variant="body1">
-                  08:00 AM - 05:00 PM
+                  09:00AM - 05:00PM
                 </Typography>
               </Box>
             </ContactInfo>

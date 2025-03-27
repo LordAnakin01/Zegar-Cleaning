@@ -94,15 +94,15 @@ const Navbar: React.FC = () => {
           <ContactInfo>
             <span>
               <FontAwesomeIcon icon={faPhone} />
-              +61 234 567 8899
+              +234 91 3269 4678
             </span>
             <span>
               <FontAwesomeIcon icon={faEnvelope} />
-              hello@zegarelite.com
+              enquiries@zegarcleaning.com
             </span>
             <span>
               <FontAwesomeIcon icon={faClock} />
-              Mon - Fri: 09.00am - 06.00pm
+              Business Hours: 09:00AM - 05:00PM
             </span>
           </ContactInfo>
         </Container>
@@ -153,13 +153,14 @@ const Navbar: React.FC = () => {
 
             <QuickContact>
               <Button
-                variant="contained"
-                color="secondary"
                 component={Link}
                 to="/quote"
-                sx={{ 
-                  height: 'fit-content',
-                  whiteSpace: 'nowrap'
+                variant="contained"
+                color="secondary"
+                sx={{
+                  px: 3,
+                  py: 1,
+                  fontWeight: 600,
                 }}
               >
                 Get A Quote

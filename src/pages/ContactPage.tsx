@@ -211,7 +211,7 @@ const ContactPage = () => {
                       Phone Number:
                     </Typography>
                     <Typography variant="body1">
-                      +61 (234) 567 8890
+                      +234 91 3269 4678
                     </Typography>
                   </Box>
                 </ContactInfo>
@@ -223,7 +223,7 @@ const ContactPage = () => {
                       Mail Address:
                     </Typography>
                     <Typography variant="body1">
-                      info@goclean.com
+                      enquiries@zegarcleaning.com
                     </Typography>
                   </Box>
                 </ContactInfo>
@@ -235,7 +235,7 @@ const ContactPage = () => {
                       Office Address:
                     </Typography>
                     <Typography variant="body1">
-                      102 Albert St, MB, AU
+                      House 16B Paradise Court Idu, FCT, Abuja.
                     </Typography>
                   </Box>
                 </ContactInfo>
@@ -244,10 +244,10 @@ const ContactPage = () => {
                   <AccessTime />
                   <Box>
                     <Typography variant="subtitle2" color="text.secondary">
-                      Opening Time:
+                      Business Hours:
                     </Typography>
                     <Typography variant="body1">
-                      08:00 AM - 05:00 PM
+                      09:00AM - 05:00PM
                     </Typography>
                   </Box>
                 </ContactInfo>
