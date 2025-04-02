@@ -163,10 +163,17 @@ const Hero: React.FC<HeroProps> = ({
                 </Button>
                 <Button
                   variant="outlined"
-                  color="primary"
                   size="large"
                   onClick={handleVideoOpen}
                   startIcon={<FontAwesomeIcon icon={faPlay} />}
+                  sx={{
+                    borderColor: 'rgba(255, 255, 255, 0.8)',
+                    color: 'white',
+                    '&:hover': {
+                      borderColor: 'white',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    }
+                  }}
                 >
                   Watch How We Work
                 </Button>

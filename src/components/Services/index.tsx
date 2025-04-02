@@ -71,11 +71,6 @@ const services: ServiceItem[] = [
     description: 'Post-renovation cleanup to make your newly renovated space spotless.',
   },
   {
-    icon: faBroom,
-    title: 'Carpet Cleaning',
-    description: 'Deep carpet cleaning to remove stains and refresh your carpets.',
-  },
-  {
     icon: faCity,
     title: 'Commercial Cleaning',
     description: 'Comprehensive cleaning solutions for all types of commercial spaces.',
@@ -92,8 +87,8 @@ const services: ServiceItem[] = [
   },
   {
     icon: faCouch,
-    title: 'Upholstery Cleaning',
-    description: 'Professional cleaning for furniture, sofas, and other upholstered items.',
+    title: 'Upholstery & Carpet Cleaning',
+    description: 'Professional cleaning for carpets, furniture, sofas, and other upholstered items.',
   },
   {
     type: 'custom',

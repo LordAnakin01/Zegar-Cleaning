@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Base/Tank -->
+  <rect x="20" y="60" width="60" height="30" rx="5" fill="#4A4A4A"/>
+  <!-- Wheels -->
+  <circle cx="30" cy="85" r="8" fill="#2C2C2C"/>
+  <circle cx="70" cy="85" r="8" fill="#2C2C2C"/>
+  <!-- Handle -->
+  <path d="M35 50 Q50 35 65 50" stroke="#4A4A4A" stroke-width="4" fill="none"/>
+  <!-- Spray Gun -->
+  <path d="M65 50 L85 30" stroke="#4A4A4A" stroke-width="4" fill="none"/>
+  <!-- Nozzle -->
+  <circle cx="85" cy="30" r="3" fill="#2C2C2C"/>
+  <!-- Water Spray -->
+  <path d="M88 27 L95 20 M88 30 L98 30 M88 33 L95 40" stroke="#6CB4EE" stroke-width="2" stroke-linecap="round"/>
+  <!-- Pressure Gauge -->
+  <circle cx="50" cy="65" r="5" fill="#6CB4EE"/>
+  <!-- Power Button -->
+  <circle cx="35" cy="65" r="3" fill="#FF4444"/>
+</svg> 

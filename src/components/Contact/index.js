@@ -63,12 +63,13 @@ const Contact = () => {
                   }
                 }}
               >
-                Feel Free To Contact
-                <span className="break">For Any Kind Of Query</span>
+                We're Here to Help
+              </Typography>
+              <Typography variant="h6" sx={{ mb: 2, color: 'text.secondary' }}>
+                Have a question or need a custom cleaning plan?
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-                Thank you for your interest in hiring Denver Cleaning Service Company.
-                We consider communication with the customer.
+                Thank you for considering Zegar Elite Cleaning Services. We value open communication and are always happy to assist you.
               </Typography>
             </Box>
 
@@ -137,6 +138,7 @@ const Contact = () => {
               onSubmit={handleSubmit}
               sx={{
                 p: 0,
+                ml: { md: 4 },
                 '& .MuiTextField-root': {
                   backgroundColor: 'background.paper',
                   borderRadius: 1,

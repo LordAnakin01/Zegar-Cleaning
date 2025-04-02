@@ -4,6 +4,7 @@ import { styled, keyframes } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import Bubbles from '../shared/Bubbles';
+import { Link as RouterLink } from 'react-router-dom';
 
 const rise = keyframes`
   0% {
@@ -113,17 +114,6 @@ const SocialIcon = styled(Link)(({ theme }) => ({
   },
 }));
 
-const FooterLink = styled(Link)(({ theme }) => ({
-  color: 'white',
-  textDecoration: 'none',
-  marginBottom: theme.spacing(1),
-  display: 'block',
-  transition: 'color 0.3s ease',
-  '&:hover': {
-    color: theme.palette.secondary.main,
-  },
-}));
-
 const Logo = styled('img')({
   height: 50,
   marginBottom: 16,
@@ -135,6 +125,17 @@ const Footer: React.FC = () => {
     // Handle newsletter subscription
   };
 
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+    mb: 1,
+    display: 'block',
+    transition: 'color 0.3s ease',
+    '&:hover': {
+      color: 'secondary.main',
+    }
+  };
+
   return (
     <FooterWrapper component="footer" sx={{ pt: 8, pb: 2 }}>
       <Bubbles count={10} minSize={20} maxSize={60} opacity={0.05} />
@@ -144,7 +145,9 @@ const Footer: React.FC = () => {
             <Box sx={{ mb: 4 }}>
               <Logo src="/assets/logo.svg" alt="Goclean" />
               <Typography variant="body2" sx={{ mb: 3, opacity: 0.8 }}>
-                Tempor faucibus et pharetra ut. Nunc vestibulum egestas dignissim imperdiet nisi nunc. Cras tincidunt pellentesque dictum interdum at. Lectus congue sagittis sem cras et diam phasellus.
+                Zegar Elite Cleaning Services{'\n'}
+                Delivering reliable, high-quality cleaning solutions tailored to your needs.{'\n'}
+                We take pride in transforming spaces with precision, care, and professionalism.
               </Typography>
               <Box sx={{ display: 'flex', gap: 2 }}>
                 <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
@@ -167,24 +170,51 @@ const Footer: React.FC = () => {
             <Typography variant="h6" sx={{ mb: 3 }}>
               Useful Links
             </Typography>
-            <FooterLink href="/">Home</FooterLink>
-            <FooterLink href="#services">Our Services</FooterLink>
-            <FooterLink href="#about">About Us</FooterLink>
-            <FooterLink href="#schedule">Schedule Appointment</FooterLink>
-            <FooterLink href="#testimonials">Testimonials</FooterLink>
-            <FooterLink href="#contact">Contact Us</FooterLink>
+            <Box component={RouterLink} to="/" sx={linkStyle}>
+              Home
+            </Box>
+            <Box component={RouterLink} to="/services" sx={linkStyle}>
+              Our Services
+            </Box>
+            <Box component={RouterLink} to="/about" sx={linkStyle}>
+              About Us
+            </Box>
+            <Box component={RouterLink} to="/contact" sx={linkStyle}>
+              Contact Us
+            </Box>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" sx={{ mb: 3 }}>
               Our Services
             </Typography>
-            <FooterLink href="#home-cleaning">Home Cleaning</FooterLink>
-            <FooterLink href="#office-cleaning">Office Cleaning</FooterLink>
-            <FooterLink href="#window-cleaning">Window Cleaning</FooterLink>
-            <FooterLink href="#renovation-cleaning">Renovation Cleaning</FooterLink>
-            <FooterLink href="#carpet-cleaning">Carpet Cleaning</FooterLink>
-            <FooterLink href="#commercial-cleaning">Commercial Cleaning</FooterLink>
+            <Box component={RouterLink} to="/services/residential-cleaning" sx={linkStyle}>
+              Home Cleaning
+            </Box>
+            <Box component={RouterLink} to="/services/commercial-cleaning" sx={linkStyle}>
+              Office Cleaning
+            </Box>
+            <Box component={RouterLink} to="/services/window-cleaning" sx={linkStyle}>
+              Window Cleaning
+            </Box>
+            <Box component={RouterLink} to="/services/renovation-cleaning" sx={linkStyle}>
+              Renovation Cleaning
+            </Box>
+            <Box component={RouterLink} to="/services/deep-cleaning" sx={linkStyle}>
+              Deep Cleaning
+            </Box>
+            <Box component={RouterLink} to="/services/green-cleaning" sx={linkStyle}>
+              Green Cleaning
+            </Box>
+            <Box component={RouterLink} to="/services/upholstery-carpet-cleaning" sx={linkStyle}>
+              Upholstery & Carpet Cleaning
+            </Box>
+            <Box component={RouterLink} to="/services/industrial-cleaning" sx={linkStyle}>
+              Industrial Cleaning
+            </Box>
+            <Box component={RouterLink} to="/services/sanitization-services" sx={linkStyle}>
+              Sanitization Services
+            </Box>
           </Grid>
 
           <Grid item xs={12} md={3}>
@@ -192,7 +222,7 @@ const Footer: React.FC = () => {
               Newsletter
             </Typography>
             <Typography variant="body2" sx={{ mb: 3, opacity: 0.8 }}>
-              Urna libero porta pellentesque sed suspendisse ut non.
+              Stay in the loop with exclusive cleaning tips, special offers, and service updates—delivered straight to your inbox.
             </Typography>
             <Box component="form" onSubmit={handleNewsletterSubmit}>
               <TextField

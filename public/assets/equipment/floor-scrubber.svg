@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Handle -->
+  <path d="M50 20 L50 60" stroke="#4A4A4A" stroke-width="4"/>
+  <!-- Handle Grip -->
+  <path d="M40 20 L60 20" stroke="#2C2C2C" stroke-width="6" stroke-linecap="round"/>
+  <!-- Control Box -->
+  <rect x="45" y="40" width="10" height="15" fill="#2C2C2C"/>
+  <!-- Main Body -->
+  <circle cx="50" cy="75" r="20" fill="#4A4A4A"/>
+  <!-- Rotating Pad -->
+  <circle cx="50" cy="75" r="18" fill="#FF4444" opacity="0.2"/>
+  <!-- Pad Pattern -->
+  <path d="M35 75 L65 75 M50 60 L50 90" stroke="#2C2C2C" stroke-width="2" opacity="0.5"/>
+  <!-- Power Cable -->
+  <path d="M55 45 Q65 50 70 60" stroke="#2C2C2C" stroke-width="2" fill="none"/>
+  <!-- Control Buttons -->
+  <circle cx="50" cy="45" r="2" fill="#FF4444"/>
+  <!-- Speed Indicator -->
+  <path d="M47 50 L53 50" stroke="#6CB4EE" stroke-width="2"/>
+</svg> 

@@ -87,6 +87,33 @@ const PackageCard = styled(Card)(({ theme }) => ({
   },
 }));
 
+const FaqAccordion = styled(Box)(({ theme }) => ({
+  '& .faq-item': {
+    marginBottom: theme.spacing(2),
+    borderRadius: theme.spacing(1),
+    overflow: 'hidden',
+    border: '1px solid rgba(0, 0, 0, 0.1)',
+  },
+  '& .faq-button': {
+    width: '100%',
+    justifyContent: 'space-between',
+    textAlign: 'left',
+    padding: theme.spacing(2, 3),
+    backgroundColor: 'transparent',
+    transition: 'all 0.3s ease',
+    '&:hover, &.active': {
+      backgroundColor: '#FFF8E1',
+    },
+    '&.active': {
+      borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+    }
+  },
+  '& .faq-content': {
+    padding: theme.spacing(3),
+    backgroundColor: '#FFFFFF',
+  }
+}));
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -168,14 +195,12 @@ const ServiceDetailPage: React.FC = () => {
         <Container>
           <Grid container spacing={4}>
             <Grid item xs={12} md={8}>
-              <ServiceImage src={service.heroImage || service.image} alt={service.title} />
+              <ServiceImage src={service.image} alt={service.title} />
               
               <Box sx={{ mb: 6 }}>
                 <Tabs value={tabValue} onChange={handleTabChange} variant="scrollable">
                   <Tab label="Overview" />
                   <Tab label="Process" />
-                  <Tab label="Packages" />
-                  <Tab label="Before & After" />
                   <Tab label="Equipment" />
                   <Tab label="FAQs" />
                 </Tabs>
@@ -255,114 +280,35 @@ const ServiceDetailPage: React.FC = () => {
 
                 <TabPanel value={tabValue} index={2}>
                   <Typography variant="h4" color="primary.main" sx={{ mb: 4, fontWeight: 600 }}>
-                    Service Packages
-                  </Typography>
-                  <Grid container spacing={3}>
-                    {service.packages?.map((pkg, index) => (
-                      <Grid item xs={12} md={4} key={index}>
-                        <PackageCard>
-                          <CardContent>
-                            <Typography variant="h6" gutterBottom>
-                              {pkg.name}
-                            </Typography>
-                            <Typography variant="h4" color="primary" sx={{ mb: 2 }}>
-                              ${pkg.price}
-                            </Typography>
-                            {pkg.frequency && (
-                              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                                {pkg.frequency}
-                              </Typography>
-                            )}
-                            <Divider sx={{ my: 2 }} />
-                            <List>
-                              {pkg.features.map((feature, idx) => (
-                                <ListItem key={idx} sx={{ py: 0.5 }}>
-                                  <ListItemIcon sx={{ minWidth: 32 }}>
-                                    <FontAwesomeIcon icon={faCheck} color="#FFB800" />
-                                  </ListItemIcon>
-                                  <ListItemText primary={feature} />
-                                </ListItem>
-                              ))}
-                            </List>
-                            <Button
-                              variant="contained"
-                              color="primary"
-                              fullWidth
-                              sx={{ mt: 2 }}
-                            >
-                              Choose Plan
-                            </Button>
-                          </CardContent>
-                        </PackageCard>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </TabPanel>
-
-                <TabPanel value={tabValue} index={3}>
-                  <Typography variant="h4" color="primary.main" sx={{ mb: 4, fontWeight: 600 }}>
-                    Before & After
-                  </Typography>
-                  <Grid container spacing={4}>
-                    {service.beforeAfter?.map((item, index) => (
-                      <Grid item xs={12} key={index}>
-                        <Typography variant="h6" sx={{ mb: 2 }}>{item.title}</Typography>
-                        <Grid container spacing={2}>
-                          <Grid item xs={12} sm={6}>
-                            <Box>
-                              <Typography variant="subtitle2" sx={{ mb: 1 }}>Before</Typography>
-                              <img
-                                src={item.before}
-                                alt="Before"
-                                style={{
-                                  width: '100%',
-                                  height: 'auto',
-                                  borderRadius: 8,
-                                }}
-                              />
-                            </Box>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Box>
-                              <Typography variant="subtitle2" sx={{ mb: 1 }}>After</Typography>
-                              <img
-                                src={item.after}
-                                alt="After"
-                                style={{
-                                  width: '100%',
-                                  height: 'auto',
-                                  borderRadius: 8,
-                                }}
-                              />
-                            </Box>
-                          </Grid>
-                        </Grid>
-                        <Typography variant="body1" sx={{ mt: 2 }}>
-                          {item.description}
-                        </Typography>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </TabPanel>
-
-                <TabPanel value={tabValue} index={4}>
-                  <Typography variant="h4" color="primary.main" sx={{ mb: 4, fontWeight: 600 }}>
                     Professional Equipment
                   </Typography>
                   <Grid container spacing={4}>
                     {service.equipment?.map((item, index) => (
-                      <Grid item xs={12} sm={6} key={index}>
-                        <Card>
-                          <Box
-                            component="img"
-                            src={item.image}
-                            alt={item.name}
-                            sx={{
-                              width: '100%',
-                              height: 'auto',
+                      <Grid item xs={12} sm={6} md={4} key={index}>
+                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                          <Box 
+                            sx={{ 
+                              p: 3,
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              bgcolor: 'background.default',
+                              minHeight: 200
                             }}
-                          />
-                          <CardContent>
+                          >
+                            <Box
+                              component="img"
+                              src={item.image}
+                              alt={item.name}
+                              sx={{
+                                width: '80%',
+                                height: 'auto',
+                                maxHeight: 160,
+                                objectFit: 'contain'
+                              }}
+                            />
+                          </Box>
+                          <CardContent sx={{ flexGrow: 1 }}>
                             <Typography variant="h6" gutterBottom>
                               {item.name}
                             </Typography>
@@ -376,40 +322,43 @@ const ServiceDetailPage: React.FC = () => {
                   </Grid>
                 </TabPanel>
 
-                <TabPanel value={tabValue} index={5}>
+                <TabPanel value={tabValue} index={3}>
                   <Typography variant="h4" color="primary.main" sx={{ mb: 4, fontWeight: 600 }}>
                     Frequently Asked Questions
                   </Typography>
-                  {service.faqs?.map((faq, index) => (
-                    <Box key={index} sx={{ mb: 2 }}>
-                      <Button
-                        onClick={() => handleFaqClick(index)}
-                        sx={{
-                          width: '100%',
-                          justifyContent: 'space-between',
-                          textAlign: 'left',
-                          py: 2,
-                          px: 3,
-                          bgcolor: 'background.paper',
-                          '&:hover': {
-                            bgcolor: 'background.paper',
-                          },
-                        }}
-                        endIcon={
-                          <FontAwesomeIcon
-                            icon={openFaq === index ? faMinus : faPlus}
-                          />
-                        }
-                      >
-                        <Typography variant="subtitle1">{faq.question}</Typography>
-                      </Button>
-                      <Collapse in={openFaq === index}>
-                        <Box sx={{ p: 3, bgcolor: 'background.paper' }}>
-                          <Typography variant="body1">{faq.answer}</Typography>
-                        </Box>
-                      </Collapse>
-                    </Box>
-                  ))}
+                  <FaqAccordion>
+                    {service.faqs?.map((faq, index) => (
+                      <Box key={index} className="faq-item">
+                        <Button
+                          onClick={() => handleFaqClick(index)}
+                          className={`faq-button ${openFaq === index ? 'active' : ''}`}
+                          endIcon={
+                            <FontAwesomeIcon
+                              icon={openFaq === index ? faMinus : faPlus}
+                              style={{ color: openFaq === index ? '#FFB800' : '#666666' }}
+                            />
+                          }
+                        >
+                          <Typography 
+                            variant="subtitle1" 
+                            sx={{ 
+                              color: openFaq === index ? '#FFB800' : 'text.primary',
+                              fontWeight: openFaq === index ? 600 : 400
+                            }}
+                          >
+                            {faq.question}
+                          </Typography>
+                        </Button>
+                        <Collapse in={openFaq === index}>
+                          <Box className="faq-content">
+                            <Typography variant="body1" color="text.secondary">
+                              {faq.answer}
+                            </Typography>
+                          </Box>
+                        </Collapse>
+                      </Box>
+                    ))}
+                  </FaqAccordion>
                 </TabPanel>
               </Box>
             </Grid>

@@ -8,6 +8,7 @@ import Team from '../Team';
 import Contact from '../Contact';
 import Bubbles from '../shared/Bubbles';
 import { keyframes } from '@emotion/react';
+import { Link } from 'react-router-dom';
 
 interface FeatureItem {
   text: string;
@@ -168,19 +169,24 @@ const About: React.FC = () => {
       image: '/assets/team/team-1.jpg',
     },
     {
-      name: 'Elizabeth Adebayo',
-      position: 'Operations Manager',
+      name: 'Chinedu Okafor',
+      position: 'Lead Cleaning Supervisor',
       image: '/assets/team/team-2.jpg',
     },
     {
-      name: 'Samuel Okonkwo',
-      position: 'Quality Assurance Lead',
+      name: 'Amaka Nwosu',
+      position: 'Sanitization & Health Safety Officer',
       image: '/assets/team/team-3.jpg',
     },
     {
-      name: 'Aisha Mohammed',
-      position: 'Client Relations Manager',
+      name: 'Tunde Adebayo',
+      position: 'Operations & Equipment Manager',
       image: '/assets/team/team-4.jpg',
+    },
+    {
+      name: 'Ifeoma Eze',
+      position: 'Client Relations & Scheduling Coordinator',
+      image: '/assets/team/team-5.jpg',
     },
   ];
 
@@ -292,7 +298,8 @@ const About: React.FC = () => {
                 variant="contained"
                 color="primary"
                 size="large"
-                href="#services"
+                component={Link}
+                to="/services"
                 sx={{ px: 4 }}
               >
                 View All Services

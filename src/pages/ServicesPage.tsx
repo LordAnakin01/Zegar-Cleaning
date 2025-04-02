@@ -155,7 +155,17 @@ const ServicesPage = () => {
         <Container>
           <Box sx={{ textAlign: 'center', mb: 6 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mb: 2 }}>
-              <img src="/assets/icons/services-icon.svg" alt="" style={{ width: 24, height: 24 }} />
+              <Box
+                component="img"
+                src="/assets/icons/services-icon.svg"
+                alt=""
+                sx={{
+                  width: 24,
+                  height: 24,
+                  color: 'primary.main',
+                  filter: 'invert(31%) sepia(97%) saturate(1789%) hue-rotate(208deg) brightness(97%) contrast(101%)'
+                }}
+              />
               <Typography variant="h6" color="primary">
                 Our Services
               </Typography>
@@ -164,8 +174,8 @@ const ServicesPage = () => {
               What We Do For Our Customers
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto' }}>
-              Discover our comprehensive range of professional cleaning services designed to meet all your cleaning needs.
-              From residential to commercial, we've got you covered.
+              At Zegar Elite Cleaning Services, we offer a full spectrum of high-quality cleaning solutions tailored to both residential and commercial spaces. Whether you need a one-time deep clean, routine maintenance, or specialized post-construction care, our expert team is equipped to handle it all with precision and professionalism.{'\n\n'}
+              Every service is delivered with attention to detail, eco-friendly products, and a commitment to customer satisfaction. Explore our services and discover how we can help you enjoy a cleaner, healthier environment—every day.
             </Typography>
           </Box>
 
