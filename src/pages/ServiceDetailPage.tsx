@@ -296,17 +296,17 @@ const ServiceDetailPage: React.FC = () => {
                               minHeight: 200
                             }}
                           >
-                            <Box
-                              component="img"
-                              src={item.image}
-                              alt={item.name}
-                              sx={{
+                          <Box
+                            component="img"
+                            src={item.image}
+                            alt={item.name}
+                            sx={{
                                 width: '80%',
-                                height: 'auto',
+                              height: 'auto',
                                 maxHeight: 160,
                                 objectFit: 'contain'
-                              }}
-                            />
+                            }}
+                          />
                           </Box>
                           <CardContent sx={{ flexGrow: 1 }}>
                             <Typography variant="h6" gutterBottom>
@@ -327,18 +327,18 @@ const ServiceDetailPage: React.FC = () => {
                     Frequently Asked Questions
                   </Typography>
                   <FaqAccordion>
-                    {service.faqs?.map((faq, index) => (
+                  {service.faqs?.map((faq, index) => (
                       <Box key={index} className="faq-item">
-                        <Button
-                          onClick={() => handleFaqClick(index)}
+                      <Button
+                        onClick={() => handleFaqClick(index)}
                           className={`faq-button ${openFaq === index ? 'active' : ''}`}
-                          endIcon={
-                            <FontAwesomeIcon
-                              icon={openFaq === index ? faMinus : faPlus}
+                        endIcon={
+                          <FontAwesomeIcon
+                            icon={openFaq === index ? faMinus : faPlus}
                               style={{ color: openFaq === index ? '#FFB800' : '#666666' }}
-                            />
-                          }
-                        >
+                          />
+                        }
+                      >
                           <Typography 
                             variant="subtitle1" 
                             sx={{ 
@@ -348,16 +348,16 @@ const ServiceDetailPage: React.FC = () => {
                           >
                             {faq.question}
                           </Typography>
-                        </Button>
-                        <Collapse in={openFaq === index}>
+                      </Button>
+                      <Collapse in={openFaq === index}>
                           <Box className="faq-content">
                             <Typography variant="body1" color="text.secondary">
                               {faq.answer}
                             </Typography>
-                          </Box>
-                        </Collapse>
-                      </Box>
-                    ))}
+                        </Box>
+                      </Collapse>
+                    </Box>
+                  ))}
                   </FaqAccordion>
                 </TabPanel>
               </Box>

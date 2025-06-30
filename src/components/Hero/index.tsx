@@ -151,6 +151,7 @@ const Hero: React.FC<HeroProps> = ({
                 Experience the pinnacle of professional cleaning services with Zegar Elite. We combine innovative techniques with meticulous attention to detail, ensuring your space reflects the excellence you deserve.
               </Typography>
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                {/*
                 <Button
                   variant="contained"
                   color="secondary"
@@ -161,6 +162,7 @@ const Hero: React.FC<HeroProps> = ({
                 >
                   Get Your Quote
                 </Button>
+                */}
                 <Button
                   variant="outlined"
                   size="large"

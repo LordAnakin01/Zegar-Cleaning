@@ -40,10 +40,10 @@ const Contact = () => {
             </Typography>
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 700, mb: 3, color: 'primary.main' }}>
-            Let's Discuss Your Cleaning Needs
+            Feel Free To Contact Us For Any Kind Of Query:
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Ready to experience the Zegar Elite difference? Our dedicated team is here to understand your needs and create a tailored cleaning solution that works for you.
+            Thank you for considering Zegar Elite Cleaning Services. We value open communication and are always happy to assist you.
           </Typography>
         </Box>
 

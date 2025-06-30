@@ -17,9 +17,9 @@ const float = keyframes`
 const HeroSection = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: 'white',
-  padding: theme.spacing(12, 0),
+  padding: theme.spacing(8, 0),
   position: 'relative',
-  minHeight: '500px',
+  minHeight: '340px',
   overflow: 'hidden',
   '&::before': {
     content: '""',
@@ -31,6 +31,16 @@ const HeroSection = styled(Box)(({ theme }) => ({
     background: `linear-gradient(90deg, ${theme.palette.primary.main}E6 50%, ${theme.palette.primary.main}CC 100%)`,
     zIndex: 1,
   },
+}));
+
+const HeroContent = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  zIndex: 2,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  height: '100%',
 }));
 
 const ServicesSection = styled(Box)(({ theme }) => ({
@@ -103,6 +113,19 @@ const ServiceDetails = styled(Box)(({ theme }) => ({
   },
 }));
 
+const HeroImage = styled('img')(({ theme }) => ({
+  position: 'absolute',
+  right: 0,
+  bottom: '-80px',
+  height: '90%',
+  zIndex: 1,
+  objectFit: 'contain',
+  animation: `${float} 6s ease-in-out infinite`,
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+}));
+
 const ServicesPage = () => {
   const [activeService, setActiveService] = useState(services[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -128,8 +151,8 @@ const ServicesPage = () => {
     <>
       <HeroSection>
         <Bubbles count={10} minSize={20} maxSize={60} opacity={0.1} />
-        <Container sx={{ position: 'relative', zIndex: 1 }}>
-          <Box sx={{ maxWidth: '50%' }}>
+        <Container sx={{ position: 'relative', zIndex: 2 }}>
+          <HeroContent>
             <Typography
               variant="h1"
               sx={{
@@ -147,8 +170,9 @@ const ServicesPage = () => {
               <Typography component="span">{'>'}</Typography>
               <Typography component="span">Our Services</Typography>
             </Box>
-          </Box>
+          </HeroContent>
         </Container>
+        <HeroImage src="/assets/images/services-hero.png" alt="Professional Cleaning" />
       </HeroSection>
 
       <ServicesSection>

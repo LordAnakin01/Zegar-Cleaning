@@ -4,13 +4,19 @@ import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { Phone, Email, LocationOn, AccessTime } from '@mui/icons-material';
 import Bubbles from '../components/shared/Bubbles';
+import { keyframes } from '@emotion/react';
+
+const float = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+`;
 
 const HeroSection = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: 'white',
-  padding: theme.spacing(12, 0),
+  padding: theme.spacing(8, 0),
   position: 'relative',
-  minHeight: '400px',
+  minHeight: '340px',
   overflow: 'hidden',
   '&::before': {
     content: '""',
@@ -27,13 +33,21 @@ const HeroSection = styled(Box)(({ theme }) => ({
 const HeroContent = styled(Box)(({ theme }) => ({
   position: 'relative',
   zIndex: 2,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  height: '100%',
 }));
 
 const HeroImage = styled('img')(({ theme }) => ({
   position: 'absolute',
   right: 0,
-  bottom: 0,
-  height: '110%',
+  bottom: '-80px',
+  height: '90%',
+  zIndex: 1,
+  objectFit: 'contain',
+  animation: `${float} 6s ease-in-out infinite`,
   [theme.breakpoints.down('md')]: {
     display: 'none',
   },
@@ -93,12 +107,12 @@ const ContactPage = () => {
     <>
       <HeroSection>
         <Bubbles count={10} minSize={20} maxSize={60} opacity={0.1} />
-        <Container>
+        <Container sx={{ position: 'relative', zIndex: 2 }}>
           <HeroContent>
             <Typography variant="h1" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
               Contact Us
             </Typography>
-            <Box sx={{ display: 'flex', gap: 1 }}>
+            <Box sx={{ display: 'flex', gap: 1, color: 'rgba(255, 255, 255, 0.8)' }}>
               <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
                 Home
               </Link>
@@ -107,7 +121,7 @@ const ContactPage = () => {
             </Box>
           </HeroContent>
         </Container>
-        <HeroImage src="/assets/images/contact-hero.png" alt="Professional Cleaner" />
+        <HeroImage src="/assets/images/services-hero.png" alt="Professional Cleaning" />
       </HeroSection>
 
       <Box component="section" sx={{ py: 8 }}>
@@ -115,12 +129,10 @@ const ContactPage = () => {
           <Grid container spacing={6}>
             <Grid item xs={12} md={7}>
               <Typography variant="h2" sx={{ fontWeight: 700, mb: 3, color: 'primary.main' }}>
-                Feel Free To Contact<br />
-                For Any Kind Of Query
+                Feel Free To Contact Us For Any Kind Of Query:
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-                Thank you for your interest in hiring Denver Cleaning Service Company.
-                We consider communication with the customer.
+                Thank you for considering Zegar Elite Cleaning Services. We value open communication and are always happy to assist you.
               </Typography>
 
               <Box component="form" onSubmit={handleSubmit} sx={{ display: 'grid', gap: 3 }}>
@@ -255,7 +267,7 @@ const ContactPage = () => {
 
               <MapContainer>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.8766810661287!2d151.20544831521252!3d-33.86785098065584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3c3e43d875%3A0x1d017d69037a07c0!2s102%20Albert%20St%2C%20Brisbane%20City%20QLD%204000%2C%20Australia!5e0!3m2!1sen!2sus!4v1645437254867!5m2!1sen!2sus"
+                  src="https://www.google.com/maps?q=House+16B+Paradise+Court+Idu,+FCT,+Abuja&output=embed"
                   title="Office Location"
                   allowFullScreen
                   loading="lazy"

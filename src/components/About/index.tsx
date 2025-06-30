@@ -25,16 +25,10 @@ interface AboutProps {
 const HeroSection = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: 'white',
-  padding: theme.spacing(12, 0),
+  padding: theme.spacing(8, 0),
   position: 'relative',
-  backgroundImage: 'url(/assets/bubbles-bg.png)',
-  backgroundSize: 'cover',
-  display: 'flex',
-  alignItems: 'center',
-  minHeight: '500px',
+  minHeight: '340px',
   overflow: 'hidden',
-  marginTop: '-64px',
-  paddingTop: theme.spacing(16),
   '&::before': {
     content: '""',
     position: 'absolute',
@@ -42,7 +36,7 @@ const HeroSection = styled(Box)(({ theme }) => ({
     left: 0,
     right: 0,
     bottom: 0,
-    background: `linear-gradient(90deg, rgba(66, 66, 66, 0.9) 50%, rgba(66, 66, 66, 0.8) 100%)`,
+    background: `linear-gradient(90deg, ${theme.palette.primary.main}E6 50%, ${theme.palette.primary.main}CC 100%)`,
     zIndex: 1,
   },
 }));
@@ -51,38 +45,29 @@ const HeroContent = styled(Box)(({ theme }) => ({
   position: 'relative',
   zIndex: 2,
   display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  width: '100%',
-  gap: theme.spacing(4),
-  '& > *:first-of-type': {
-    flex: 1,
-  },
-  '& > *:last-child': {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-}));
-
-const HeroImage = styled('img')(({ theme }) => ({
-  maxHeight: '500px',
-  position: 'relative',
-  marginBottom: '-120px',
-  transition: 'transform 0.6s ease-in-out',
-  animation: `${float} 6s ease-in-out infinite`,
-  '&:hover': {
-    transform: 'translateY(-10px)',
-  },
-  [theme.breakpoints.down('md')]: {
-    display: 'none',
-  },
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  height: '100%',
 }));
 
 const float = keyframes`
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
 `;
+
+const HeroImage = styled('img')(({ theme }) => ({
+  position: 'absolute',
+  right: 0,
+  bottom: '-80px',
+  height: '90%',
+  zIndex: 1,
+  objectFit: 'contain',
+  animation: `${float} 6s ease-in-out infinite`,
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+}));
 
 const AboutWrapper = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -152,6 +137,20 @@ const CheckItem = styled(Box)(({ theme }) => ({
   gap: theme.spacing(2),
 }));
 
+const TeamCard = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  borderRadius: theme.spacing(2),
+  padding: theme.spacing(3),
+  textAlign: 'center',
+  boxShadow: '0 4px 16px rgba(0,0,0,0.06)',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: '2px solid #FFB800',
+}));
+
 const About: React.FC = () => {
   const benefits = [
     'We are Committed',
@@ -194,23 +193,21 @@ const About: React.FC = () => {
     <>
       <HeroSection>
         <Bubbles count={10} minSize={20} maxSize={60} opacity={0.1} />
-        <Container>
+        <Container sx={{ position: 'relative', zIndex: 2 }}>
           <HeroContent>
-            <Box>
-              <Typography variant="h1" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-                About Us
-              </Typography>
-              <Box sx={{ display: 'flex', gap: 1 }}>
-                <Typography component="span">Home</Typography>
-                <Typography component="span">{'>'}</Typography>
-                <Typography component="span">About Us</Typography>
-              </Box>
-            </Box>
-            <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-              <HeroImage src="/assets/cleaner-hero.png" alt="Professional Cleaner" />
+            <Typography variant="h1" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
+              About Us
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 1, color: 'rgba(255, 255, 255, 0.8)' }}>
+              <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+                Home
+              </Link>
+              <Typography component="span">{'>'}</Typography>
+              <Typography component="span">About Us</Typography>
             </Box>
           </HeroContent>
         </Container>
+        <HeroImage src="/assets/images/services-hero.png" alt="Professional Cleaning" />
       </HeroSection>
 
       <Box component="section" sx={{ py: 8 }}>

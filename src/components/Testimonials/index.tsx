@@ -9,7 +9,7 @@ const slideAnimation = keyframes`
   }
   100% {
     transform: translateX(calc(-33.333% - 24px));
-  }
+}
 `;
 
 const TestimonialsSection = styled(Box)(({ theme }) => ({
@@ -157,18 +157,18 @@ const Testimonials: React.FC = () => {
               <Box key={`${testimonial.name}-${index}`} sx={{ flex: '0 0 calc(33.333% - 16px)' }}>
                 <TestimonialCard>
                   <Box>
-                    <Typography variant="h6" sx={{ mb: 1 }}>
-                      {testimonial.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                      {testimonial.role}
-                    </Typography>
+                <Typography variant="h6" sx={{ mb: 1 }}>
+                  {testimonial.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                  {testimonial.role}
+                </Typography>
                     <Rating value={testimonial.rating} readOnly sx={{ mb: 2, color: '#FFB800' }} />
-                    <Typography variant="body1" color="text.secondary">
-                      "{testimonial.comment}"
-                    </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  "{testimonial.comment}"
+                </Typography>
                   </Box>
-                </TestimonialCard>
+              </TestimonialCard>
               </Box>
             ))}
           </Box>

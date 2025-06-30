@@ -10,9 +10,9 @@ import About from './components/About';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import ContactPage from './pages/ContactPage';
-import ProjectsPage from './pages/ProjectsPage';
-import ProjectDetailPage from './pages/ProjectDetailPage';
-import QuotePage from './pages/QuotePage';
+// <Route path="/projects" element={<ProjectsPage />} />
+// <Route path="/projects/:id" element={<ProjectDetailPage />} />
+// <Route path="/quote" element={<QuotePage />} />
 import PricingPage from './pages/PricingPage';
 
 function App() {
@@ -29,9 +29,6 @@ function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/projects/:id" element={<ProjectDetailPage />} />
-              <Route path="/quote" element={<QuotePage />} />
               <Route path="/pricing" element={<PricingPage />} />
             </Routes>
           </main>

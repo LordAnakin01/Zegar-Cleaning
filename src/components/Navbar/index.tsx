@@ -70,7 +70,6 @@ const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Projects', href: '/projects' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -152,7 +151,7 @@ const Navbar: React.FC = () => {
             )}
 
             <QuickContact>
-              <Button
+              {/* <Button
                 component={Link}
                 to="/quote"
                 variant="contained"
@@ -164,7 +163,7 @@ const Navbar: React.FC = () => {
                 }}
               >
                 Get A Quote
-              </Button>
+              </Button> */}
             </QuickContact>
 
             {isMobile && (
@@ -205,11 +204,11 @@ const Navbar: React.FC = () => {
                 )}
               </ListItem>
             ))}
-            <ListItem disablePadding>
+            {/* <ListItem disablePadding>
               <ListItemButton component={Link} to="/quote">
                 <ListItemText primary="Get A Quote" />
               </ListItemButton>
-            </ListItem>
+            </ListItem> */}
           </List>
         </Box>
       </Drawer>
