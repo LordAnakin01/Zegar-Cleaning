@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Grid, TextField, Button, Link } from '@mui/material';
 import { styled, keyframes } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faTwitter, faInstagram, faLinkedinIn, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import Bubbles from '../shared/Bubbles';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -150,17 +150,14 @@ const Footer: React.FC = () => {
                 We take pride in transforming spaces with precision, care, and professionalism.
               </Typography>
               <Box sx={{ display: 'flex', gap: 2 }}>
-                <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
+                <SocialIcon href="https://www.facebook.com/share/15ZQQb1GZY/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faFacebookF} />
                 </SocialIcon>
-                <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={faTwitter} />
-                </SocialIcon>
-                <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
+                <SocialIcon href="https://www.instagram.com/zegarelitecleaning?igsh=MXZ1NHA3cHJndjhkNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faInstagram} />
                 </SocialIcon>
-                <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={faLinkedinIn} />
+                <SocialIcon href="https://x.com/zegarelite?s=21" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faXTwitter} />
                 </SocialIcon>
               </Box>
             </Box>
@@ -253,6 +250,23 @@ const Footer: React.FC = () => {
             </Box>
           </Grid>
         </Grid>
+
+        <Box sx={{ mt: 4, textAlign: 'center' }}>
+          <Typography variant="h6" sx={{ mb: 1 }}>
+            Follow Us
+          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 2 }}>
+            <a href="https://www.facebook.com/share/15ZQQb1GZY/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <FontAwesomeIcon icon={faFacebookF} size="lg" />
+            </a>
+            <a href="https://www.instagram.com/zegarelitecleaning?igsh=MXZ1NHA3cHJndjhkNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <FontAwesomeIcon icon={faInstagram} size="lg" />
+            </a>
+            <a href="https://x.com/zegarelite?s=21" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+              <FontAwesomeIcon icon={faXTwitter} size="lg" />
+            </a>
+          </Box>
+        </Box>
 
         <Box
           sx={{
